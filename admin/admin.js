@@ -523,7 +523,13 @@
       document.getElementById('classImageUrlInput').value = '';
     }
 
-    if (classModal) classModal.classList.add('open');
+    if (classModal) {
+      classModal.classList.add('open');
+      const modalBody = classModal.querySelector('.modal-body');
+      if (modalBody) {
+        modalBody.scrollTop = 0;
+      }
+    }
   }
 
   function closeClassModal() {
