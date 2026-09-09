@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Dashboard | Suresh Senanayake Physics Classes</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="alternate icon" type="image/png" href="../favicon.png">
+
+  <!-- Typography: Inter & Noto Sans Sinhala -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       ADMIN HEADER
+       ========================================================================= -->
+  <header class="admin-header">
+    <div class="header-brand">
+      <div class="brand-icon">⚛</div>
+      <div class="brand-info">
+        <h1>CMS Dashboard</h1>
+        <span>Suresh Senanayake Physics <strong id="headerRepoInfo" style="color: #64D2FF; margin-left: 6px;"></strong></span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="../index.html" target="_blank" class="btn btn-header-link" title="Open live public website in new tab">
+        🌐 <span class="btn-text-desktop">View Live Site</span>
+      </a>
+      <button type="button" id="logoutBtn" class="btn btn-danger" style="display: none;" title="Clear token from browser session">
+        🔒 <span class="btn-text-desktop">Logout</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Toast Notification Container -->
+  <div id="adminToast" class="admin-toast"></div>
+
+  <!-- Realtime Sync Indicator -->
+  <div id="loadingIndicator" style="display: none; position: fixed; top: 78px; right: 24px; background: rgba(7, 25, 47, 0.95); color: #FFFFFF; padding: 10px 18px; border-radius: 8px; z-index: 1200; font-size: 0.88rem; font-weight: 600; box-shadow: 0 4px 14px rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1);">
+    ⏳ Syncing with GitHub...
+  </div>
+
+  <!-- =========================================================================
+       1. AUTHENTICATION / LOGIN SCREEN
+       ========================================================================= -->
+  <main class="auth-wrapper" id="authWrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-logo">⚛</div>
+        <h2>Physics CMS Login</h2>
+        <p>Manage tuition classes, timetables, and bilingual website content directly via GitHub Pages.</p>
+      </div>
+
+      <div class="security-note">
+        🛡️ <strong>Zero-Server Architecture:</strong> Your GitHub Personal Access Token is stored strictly in your browser's temporary <code>sessionStorage</code>. It is never transmitted to any third-party server or written to the repository.
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="ghTokenInput">GitHub Personal Access Token (PAT) *</label>
+          <input type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx or github_pat_..." required autocomplete="current-password">
+          <span class="form-hint">Requires <strong>Contents: Read and write</strong> permission on your repository.</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="repoOwnerInput">GitHub Username / Org</label>
+            <input type="text" id="repoOwnerInput" value="kanchu12345" required>
+          </div>
+          <div class="form-group">
+            <label for="repoNameInput">Repository Name</label>
+            <input type="text" id="repoNameInput" value="class" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="imgbbKeyInput">ImgBB API Key (Optional for Photo Uploads)</label>
+          <input type="text" id="imgbbKeyInput" placeholder="32-character free API key">
+          <span class="form-hint">Used for automatic 1-click tuition flyer & classroom photo hosting.</span>
+        </div>
+
+        <div class="auth-guide-box">
+          <strong>Need a GitHub Token?</strong>
+          <ol>
+            <li>Go to GitHub → <em>Settings</em> → <em>Developer Settings</em> → <em>Personal access tokens</em> → <em>Fine-grained tokens</em>.</li>
+            <li>Select repository: <strong>kanchu12345/class</strong>.</li>
+            <li>Under Repository permissions, set <strong>Contents</strong> to <em>Access: Read and write</em>.</li>
+            <li>Generate token and paste above.</li>
+          </ol>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 1rem; font-weight: 700;">
+          🔓 Connect to GitHub CMS
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       2. DASHBOARD CONTAINER
+       ========================================================================= -->
+  <div class="admin-container" id="adminContainer" style="display: none;">
+
+    <!-- Navigation Tabs -->
+    <nav class="admin-tabs" aria-label="CMS Sections">
+      <button type="button" class="tab-btn active" data-tab="tab-classes">
+        📚 Tuition Classes <span class="tab-badge" id="classesCountBadge">0</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-content">
+        📝 Website Copy (Bilingual)
+      </button>
+      <button type="button" class="tab-btn" data-tab="tab-settings">
+        ⚙️ Settings & API Keys
+      </button>
+    </nav>
+
+    <!-- -----------------------------------------------------------------------
+         TAB 1: CLASSES CRUD
+         ----------------------------------------------------------------------- -->
+    <div class="tab-pane active" id="tab-classes">
+      <div class="section-toolbar">
+        <div>
+          <h2>Tuition Classes & Timetables</h2>
+          <p>Add, edit, reorder, or remove class offerings, timetables, and feature bullet points.</p>
+        </div>
+        <button type="button" id="addClassBtn" class="btn btn-primary">
+          + Add New Class
+        </button>
+      </div>
+
+      <!-- Card Grid populated dynamically by admin.js -->
+      <div class="admin-classes-grid" id="classesListContainer">
+        <!-- Rendered by admin.js -->
+      </div>
+    </div>
+
+    <!-- -----------------------------------------------------------------------
+         TAB 2: BILINGUAL SITE CONTENT
+         ----------------------------------------------------------------------- -->
+    <div class="tab-pane" id="tab-content">
+      <div class="section-toolbar">
+        <div>
+          <h2>Website Content Editor</h2>
+          <p>Edit English and Sinhala copy across the hero banner, teacher bio, location, and contact cards.</p>
+        </div>
+      </div>
+
+      <form id="siteContentForm">
+
+        <!-- HERO SECTION CARD -->
+        <div class="content-section-card">
+          <h3>⚡ Hero Section</h3>
+          <p class="card-desc">Topmost banner headlines, trust badge, and introductory tagline.</p>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Top Badge</label>
+              <input type="text" id="h_badge_en" placeholder="e.g. 2026 / 2027 A/L Physics Batches Open">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Top Badge (සිංහල)</label>
+              <input type="text" id="h_badge_si" placeholder="e.g. 2026 / 2027 උසස් පෙළ භෞතික විද්‍යාව">
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Main Headline</label>
+              <textarea id="h_headline_en" rows="2" placeholder="Main title text on homepage"></textarea>
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Main Headline (සිංහල)</label>
+              <textarea id="h_headline_si" rows="2" placeholder="ප්‍රධාන සිරස්තලය"></textarea>
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Subline Description</label>
+              <textarea id="h_subline_en" rows="3" placeholder="Supporting text below headline"></textarea>
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Subline Description (සිංහල)</label>
+              <textarea id="h_subline_si" rows="3" placeholder="උප සිරස්තලය"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABOUT TEACHER CARD -->
+        <div class="content-section-card">
+          <h3>👨‍🏫 About the Teacher</h3>
+          <p class="card-desc">Educator profile, academic qualifications, and teaching philosophy.</p>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Section Kicker</label>
+              <input type="text" id="a_kicker_en" placeholder="e.g. Meet Your Teacher">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Section Kicker (සිංහල)</label>
+              <input type="text" id="a_kicker_si" placeholder="e.g. ඔබේ ගුරුවරයා">
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Teacher Name / Title</label>
+              <input type="text" id="a_title_en" placeholder="e.g. Suresh Senanayake">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Teacher Name / Title (සිංහල)</label>
+              <input type="text" id="a_title_si" placeholder="e.g. සුරේෂ් සේනානායක">
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Role Subtitle</label>
+              <input type="text" id="a_subtitle_en" placeholder="e.g. Dedicated Physics Educator">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Role Subtitle (සිංහල)</label>
+              <input type="text" id="a_subtitle_si" placeholder="e.g. කැපවූ භෞතික විද්‍යා ආචාර්ය">
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Academic Qualifications</label>
+              <input type="text" id="a_teacher_degree_en" placeholder="e.g. B.Sc. (Physics), University of Peradeniya">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Academic Qualifications (සිංහල)</label>
+              <input type="text" id="a_teacher_degree_si" placeholder="e.g. පේරාදෙණිය විශ්වවිද්‍යාලයේ භෞතික විද්‍යා උපාධිධාරී">
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Bio Paragraph 1</label>
+              <textarea id="a_p1_en" rows="4"></textarea>
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Bio Paragraph 1 (සිංහල)</label>
+              <textarea id="a_p1_si" rows="4"></textarea>
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Bio Paragraph 2</label>
+              <textarea id="a_p2_en" rows="4"></textarea>
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Bio Paragraph 2 (සිංහල)</label>
+              <textarea id="a_p2_si" rows="4"></textarea>
+            </div>
+          </div>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Philosophy Quote Title</label>
+              <input type="text" id="a_phil_title_en" placeholder="e.g. Teaching Philosophy">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Philosophy Quote Title (සිංහල)</label>
+              <input type="text" id="a_phil_title_si" placeholder="e.g. ඉගැන්වීමේ දර්ශනය">
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCATION & VENUE CARD -->
+        <div class="content-section-card">
+          <h3>📍 Location & Campus Facilities</h3>
+          <p class="card-desc">Physical classroom institute details and Google Maps embed configuration.</p>
+
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Institute Name</label>
+              <input type="text" id="loc_name_en" placeholder="e.g. Gampaha Education Institute">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Institute Name (සිංහල)</label>
+              <input type="text" id="loc_name_si" placeholder="e.g. ගම්පහ අධ්‍යාපන ආයතනය">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="loc_town_en">Town / City</label>
+              <input type="text" id="loc_town_en" placeholder="e.g. Gampaha, Sri Lanka">
+            </div>
+            <div class="form-group">
+              <label for="loc_landmark_en">Landmark / Proximity</label>
+              <input type="text" id="loc_landmark_en" placeholder="e.g. 5 mins walk from Gampaha Railway Station">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loc_facilities_en">Facilities Description</label>
+            <input type="text" id="loc_facilities_en" placeholder="e.g. Air-conditioned lecture halls, multimedia projection, quiet study lounge">
+          </div>
+
+          <div class="form-group">
+            <label for="loc_map_url">Google Maps Embed URL</label>
+            <input type="url" id="loc_map_url" placeholder="https://www.google.com/maps/embed?...">
+            <span class="form-hint">Paste the <code>src</code> attribute from Google Maps → Share → Embed a map.</span>
+          </div>
+        </div>
+
+        <!-- CONTACT DETAILS CARD -->
+        <div class="content-section-card">
+          <h3>📞 Direct Contact & Inquiries</h3>
+          <p class="card-desc">Official channels linked to call, email, and WhatsApp inquiry buttons.</p>
+
+          <div class="grid-3">
+            <div class="form-group">
+              <label for="c_email">Official Email</label>
+              <input type="email" id="c_email" placeholder="e.g. suresh.senanayake@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="c_phone">Phone Number</label>
+              <input type="tel" id="c_phone" placeholder="e.g. 071 569 7364">
+            </div>
+            <div class="form-group">
+              <label for="c_whatsapp">WhatsApp Number</label>
+              <input type="tel" id="c_whatsapp" placeholder="e.g. +94 77 917 0297">
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- -----------------------------------------------------------------------
+         TAB 3: SETTINGS & API KEYS
+         ----------------------------------------------------------------------- -->
+    <div class="tab-pane" id="tab-settings">
+      <div class="section-toolbar">
+        <div>
+          <h2>Settings & Integrations</h2>
+          <p>Configure repository parameters and third-party media hosting keys.</p>
+        </div>
+      </div>
+
+      <div class="content-section-card">
+        <h3>🖼️ ImgBB Image Hosting Configuration</h3>
+        <p class="card-desc">Enable 1-click flyer and classroom photo uploads directly from the Class Editor modal.</p>
+
+        <div class="form-group">
+          <label for="settingsImgbbKey">ImgBB Free API Key</label>
+          <input type="text" id="settingsImgbbKey" placeholder="Paste your 32-character ImgBB API key">
+          <span class="form-hint">Get a free key in 30 seconds at <a href="https://api.imgbb.com/" target="_blank">api.imgbb.com</a>. Stored only in your local browser storage.</span>
+        </div>
+
+        <button type="button" id="saveSettingsBtn" class="btn btn-primary">
+          💾 Save Settings
+        </button>
+      </div>
+
+      <div class="content-section-card">
+        <h3>🚀 GitHub Pages Deployment Workflow</h3>
+        <p class="card-desc">How changes make their way to your live website:</p>
+        <ol style="padding-left: 20px; color: var(--admin-text-muted); font-size: 0.88rem; line-height: 1.7;">
+          <li>When you click <strong>Commit & Publish to GitHub</strong>, the admin panel creates a new Git commit on branch <code>main</code> updating <code>data/content.json</code>.</li>
+          <li>Sinhala characters are encoded into UTF-8 safe base64 bytes to guarantee zero text corruption.</li>
+          <li>GitHub Pages automatically detects the commit and rebuilds the static site within 1–2 minutes.</li>
+          <li>Visitors on <code>index.html</code> immediately receive the new classes and copy upon refreshing the page.</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       3. CLASS EDIT / ADD MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="classModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="classModalTitle">Add New Class Entry</h3>
+        <button type="button" id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+
+      <form id="classForm">
+        <div class="modal-body">
+
+          <!-- Title -->
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Class Title *</label>
+              <input type="text" id="c_title_en" placeholder="e.g. 2026 A/L Physics Theory" required>
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Class Title (සිංහල)</label>
+              <input type="text" id="c_title_si" placeholder="e.g. 2026 උසස් පෙළ සිද්ධාන්ත">
+            </div>
+          </div>
+
+          <!-- Tag & Category -->
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="c_tag">Tag Label</label>
+              <input type="text" id="c_tag" placeholder="e.g. 2026 A/L or O/L Foundation">
+            </div>
+            <div class="form-group">
+              <label for="c_tagClass">Tag Visual Style</label>
+              <select id="c_tagClass">
+                <option value="tag-al">A/L Theory (Royal Blue Badge)</option>
+                <option value="tag-rev">Revision / Paper (Teal Badge)</option>
+                <option value="tag-ol">O/L Foundation (Amber Badge)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Medium & Badge -->
+          <div class="grid-2">
+            <div class="form-group">
+              <label for="c_medium_en">Medium (English)</label>
+              <input type="text" id="c_medium_en" value="Sinhala & English Medium">
+            </div>
+            <div class="form-group">
+              <label for="c_badge">Featured Highlight Badge</label>
+              <input type="text" id="c_badge" placeholder="e.g. NEW BATCH or POPULAR">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="c_medium_si">Medium (සිංහල)</label>
+            <input type="text" id="c_medium_si" value="සිංහල හා ඉංග්‍රීසි මාධ්‍ය">
+          </div>
+
+          <!-- Schedule & Venue -->
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Timetable / Schedule</label>
+              <input type="text" id="c_schedule_en" placeholder="e.g. Saturdays: 8:00 AM – 1:30 PM">
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Timetable (සිංහල)</label>
+              <input type="text" id="c_schedule_si" placeholder="e.g. සෙනසුරාදා: පෙ.ව. 8:00 – ප.ව. 1:30">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="c_venue">Campus Venue</label>
+            <input type="text" id="c_venue" value="Gampaha Institute">
+          </div>
+
+          <!-- Descriptions -->
+          <div class="bilingual-field">
+            <div class="lang-col">
+              <label><span class="badge-lang-en">EN</span> Class Description</label>
+              <textarea id="c_desc_en" rows="3" placeholder="Brief overview of course curriculum"></textarea>
+            </div>
+            <div class="lang-col">
+              <label><span class="badge-lang-si">SI</span> Class Description (සිංහල)</label>
+              <textarea id="c_desc_si" rows="3" placeholder="පාඨමාලා විස්තරය"></textarea>
+            </div>
+          </div>
+
+          <!-- Features (Bullet points) -->
+          <div class="form-group">
+            <label for="c_features">Key Syllabus Features (One per line: <code>English | Sinhala</code>)</label>
+            <textarea id="c_features" rows="4" placeholder="Full syllabus theory coverage | සම්පූර්ණ විෂය නිර්දේශ ආවරණය&#10;Unit-by-unit tutorials | ඒකක අනුව නිබන්ධන&#10;Model paper discussion | ආදර්ශ ප්‍රශ්න පත්‍ර සාකච්ඡාව"></textarea>
+            <span class="form-hint">Format each line as: <code>English Feature | Sinhala Feature</code>. If no pipe, the text will be used for both.</span>
+          </div>
+
+          <!-- Image Upload & URL -->
+          <div class="form-group">
+            <label>Classroom / Flyer Photo</label>
+            <div class="image-upload-box">
+              <input type="file" id="classImageFile" accept="image/png, image/jpeg, image/webp">
+              <div id="imageUploadStatus" style="font-size: 0.8rem; margin-top: 6px; color: var(--admin-text-muted);">
+                Select photo to upload to ImgBB automatically, or paste direct URL below.
+              </div>
+            </div>
+            <input type="url" id="classImageUrlInput" placeholder="https://i.ibb.co/... or https://images.unsplash.com/...">
+
+            <div class="image-preview-frame" id="classImagePreview">
+              <img src="" alt="Class thumbnail preview" id="previewImgTag">
+              <button type="button" id="removeImageBtn" class="btn btn-danger" style="position: absolute; top: 8px; right: 8px; padding: 4px 10px; font-size: 0.75rem;">
+                ✕ Remove
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="modalCancelBtn" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save to Draft</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       4. FLOATING SAVE & PUBLISH BAR
+       ========================================================================= -->
+  <aside class="floating-save-bar" id="floatingSaveBar" style="display: none;">
+    <div class="save-status-info">
+      <span id="saveStatusDot" class="status-dot"></span>
+      <span id="saveStatusText">All changes synced with GitHub</span>
+    </div>
+    <div class="save-actions">
+      <button type="button" id="discardChangesBtn" class="btn btn-secondary">
+        Discard Changes
+      </button>
+      <button type="button" id="saveAllBtn" class="btn btn-primary">
+        💾 Commit & Publish to GitHub
+      </button>
+    </div>
+  </aside>
+
+  <!-- Admin Controller Script -->
+  <script src="admin.js"></script>
+</body>
+</html>

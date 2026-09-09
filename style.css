@@ -782,6 +782,40 @@ button, input, select, textarea {
   box-shadow: var(--shadow-card);
 }
 
+.class-card-image-wrap {
+  width: calc(100% + 64px);
+  margin: -32px -32px 18px -32px;
+  height: 180px;
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-surface-subtle);
+}
+
+.class-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.class-card:hover .class-card-img {
+  transform: scale(1.04);
+}
+
+.class-schedule-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  color: var(--color-brand-blue);
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  background-color: rgba(29, 63, 214, 0.06);
+  border-radius: var(--radius-sm);
+}
+
 .class-card-badge {
   position: absolute;
   top: -12px;
