@@ -205,6 +205,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      // Update Why Choose Us Pillars Dynamically
+      if (Array.isArray(data.why_choose_us) && data.why_choose_us.length > 0) {
+        const whyCards = document.querySelectorAll('.why-card');
+        data.why_choose_us.forEach((w, i) => {
+          if (whyCards[i]) {
+            const titleEl = whyCards[i].querySelector('.why-title');
+            if (titleEl && w.title_en) {
+              titleEl.setAttribute('data-en', w.title_en);
+              titleEl.setAttribute('data-si', w.title_si || w.title_en);
+            }
+            const descEl = whyCards[i].querySelector('.why-desc');
+            if (descEl && w.desc_en) {
+              descEl.setAttribute('data-en', w.desc_en);
+              descEl.setAttribute('data-si', w.desc_si || w.desc_en);
+            }
+          }
+        });
+      }
+
       // Update Location Map Iframe & Information
       if (data.location) {
         if (data.location.map_embed_url) {

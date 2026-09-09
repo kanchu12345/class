@@ -428,6 +428,10 @@
           🗓️ ${escapeHtml(c.schedule_en || c.schedule || 'Schedule TBD')}
         </div>
         <div class="admin-class-actions">
+          <div style="display: flex; gap: 6px; width: 100%; margin-bottom: 6px;">
+            <button type="button" class="btn btn-secondary btn-move-up" data-index="${index}" title="Move Up" style="flex: 1; padding: 5px 8px; font-size: 0.78rem;" ${index === 0 ? 'disabled style="flex:1; padding:5px 8px; font-size:0.78rem; opacity:0.35; cursor:not-allowed;"' : ''}>⬆️ Up</button>
+            <button type="button" class="btn btn-secondary btn-move-down" data-index="${index}" title="Move Down" style="flex: 1; padding: 5px 8px; font-size: 0.78rem;" ${index === classes.length - 1 ? 'disabled style="flex:1; padding:5px 8px; font-size:0.78rem; opacity:0.35; cursor:not-allowed;"' : ''}>⬇️ Down</button>
+          </div>
           <button type="button" class="btn btn-secondary btn-edit-class" data-index="${index}">✏️ Edit</button>
           <button type="button" class="btn btn-danger btn-delete-class" data-index="${index}">🗑️ Delete</button>
         </div>
@@ -436,6 +440,34 @@
     });
 
     // Attach Action Listeners
+    classesListContainer.querySelectorAll('.btn-move-up').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-index'), 10);
+        if (idx > 0 && currentContent && currentContent.classes) {
+          const temp = currentContent.classes[idx];
+          currentContent.classes[idx] = currentContent.classes[idx - 1];
+          currentContent.classes[idx - 1] = temp;
+          renderClassesList(currentContent.classes);
+          markUnsaved(true);
+          showToast('Order Updated', 'Class order rearranged. Click "Commit & Publish" to save.', 'info');
+        }
+      });
+    });
+
+    classesListContainer.querySelectorAll('.btn-move-down').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-index'), 10);
+        if (currentContent && currentContent.classes && idx < currentContent.classes.length - 1) {
+          const temp = currentContent.classes[idx];
+          currentContent.classes[idx] = currentContent.classes[idx + 1];
+          currentContent.classes[idx + 1] = temp;
+          renderClassesList(currentContent.classes);
+          markUnsaved(true);
+          showToast('Order Updated', 'Class order rearranged. Click "Commit & Publish" to save.', 'info');
+        }
+      });
+    });
+
     classesListContainer.querySelectorAll('.btn-edit-class').forEach(btn => {
       btn.addEventListener('click', () => {
         const idx = parseInt(btn.getAttribute('data-index'), 10);
@@ -645,6 +677,17 @@
       setVal('a_phil_title_si', data.about.philosophy_title_si);
     }
 
+    // Why Choose Us
+    if (Array.isArray(data.why_choose_us)) {
+      data.why_choose_us.forEach((w, i) => {
+        const idx = i + 1;
+        setVal(`why${idx}_title_en`, w.title_en);
+        setVal(`why${idx}_title_si`, w.title_si);
+        setVal(`why${idx}_desc_en`, w.desc_en);
+        setVal(`why${idx}_desc_si`, w.desc_si);
+      });
+    }
+
     // Location
     if (data.location) {
       setVal('loc_name_en', data.location.institute_name_en);
@@ -701,6 +744,19 @@
     currentContent.about.paragraph2_si = getVal('a_p2_si');
     currentContent.about.philosophy_title_en = getVal('a_phil_title_en');
     currentContent.about.philosophy_title_si = getVal('a_phil_title_si');
+
+    // Why Choose Us
+    if (!currentContent.why_choose_us) currentContent.why_choose_us = [];
+    for (let i = 1; i <= 4; i++) {
+      const existing = currentContent.why_choose_us[i - 1] || { id: `why-${i}` };
+      currentContent.why_choose_us[i - 1] = {
+        id: existing.id || `why-${i}`,
+        title_en: getVal(`why${i}_title_en`) || existing.title_en || '',
+        title_si: getVal(`why${i}_title_si`) || existing.title_si || '',
+        desc_en: getVal(`why${i}_desc_en`) || existing.desc_en || '',
+        desc_si: getVal(`why${i}_desc_si`) || existing.desc_si || ''
+      };
+    }
 
     // Location
     if (!currentContent.location) currentContent.location = {};

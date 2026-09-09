@@ -283,6 +283,112 @@
           </div>
         </div>
 
+        <!-- WHY CHOOSE US CARD -->
+        <div class="content-section-card">
+          <h3>🌟 Why Choose Us (Trust Pillars)</h3>
+          <p class="card-desc">Edit the 4 core value proposition cards shown to parents and students.</p>
+
+          <!-- Pillar 1 -->
+          <div style="margin-bottom: 20px; padding: 14px; background: #F8FAFC; border: 1px solid var(--admin-border); border-radius: var(--radius-sm);">
+            <strong style="display: block; margin-bottom: 10px; color: var(--admin-primary);">Pillar 1: Exam-Focused Syllabus</strong>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Title</label>
+                <input type="text" id="why1_title_en" placeholder="e.g. Exam-Focused Syllabus Mastery">
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Title (සිංහල)</label>
+                <input type="text" id="why1_title_si" placeholder="e.g. විභාග කේන්ද්‍රීය ක්‍රමවත් ඉගැන්වීම">
+              </div>
+            </div>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Description</label>
+                <textarea id="why1_desc_en" rows="2"></textarea>
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Description (සිංහල)</label>
+                <textarea id="why1_desc_si" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div style="margin-bottom: 20px; padding: 14px; background: #F8FAFC; border: 1px solid var(--admin-border); border-radius: var(--radius-sm);">
+            <strong style="display: block; margin-bottom: 10px; color: var(--admin-primary);">Pillar 2: Past Paper Analysis</strong>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Title</label>
+                <input type="text" id="why2_title_en" placeholder="e.g. In-Depth Past Paper Analysis">
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Title (සිංහල)</label>
+                <input type="text" id="why2_title_si" placeholder="e.g. වසර 40ක ප්‍රශ්න පත්‍ර ගැඹුරින් සාකච්ඡාව">
+              </div>
+            </div>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Description</label>
+                <textarea id="why2_desc_en" rows="2"></textarea>
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Description (සිංහල)</label>
+                <textarea id="why2_desc_si" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div style="margin-bottom: 20px; padding: 14px; background: #F8FAFC; border: 1px solid var(--admin-border); border-radius: var(--radius-sm);">
+            <strong style="display: block; margin-bottom: 10px; color: var(--admin-primary);">Pillar 3: Individual Attention</strong>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Title</label>
+                <input type="text" id="why3_title_en" placeholder="e.g. Balanced Batches & Individual Attention">
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Title (සිංහල)</label>
+                <input type="text" id="why3_title_si" placeholder="e.g. පෞද්ගලික අවධානය සහ මගපෙන්වීම">
+              </div>
+            </div>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Description</label>
+                <textarea id="why3_desc_en" rows="2"></textarea>
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Description (සිංහල)</label>
+                <textarea id="why3_desc_si" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div style="padding: 14px; background: #F8FAFC; border: 1px solid var(--admin-border); border-radius: var(--radius-sm);">
+            <strong style="display: block; margin-bottom: 10px; color: var(--admin-primary);">Pillar 4: Bilingual Fluency</strong>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Title</label>
+                <input type="text" id="why4_title_en" placeholder="e.g. Bilingual Fluency (Sinhala & English)">
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Title (සිංහල)</label>
+                <input type="text" id="why4_title_si" placeholder="e.g. සිංහල සහ ඉංග්‍රීසි මාධ්‍ය විශේෂඥතාව">
+              </div>
+            </div>
+            <div class="bilingual-field">
+              <div class="lang-col">
+                <label><span class="badge-lang-en">EN</span> Description</label>
+                <textarea id="why4_desc_en" rows="2"></textarea>
+              </div>
+              <div class="lang-col">
+                <label><span class="badge-lang-si">SI</span> Description (සිංහල)</label>
+                <textarea id="why4_desc_si" rows="2"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- LOCATION & VENUE CARD -->
         <div class="content-section-card">
           <h3>📍 Location & Campus Facilities</h3>
@@ -435,7 +541,12 @@
             </div>
             <div class="form-group">
               <label for="c_badge">Featured Highlight Badge</label>
-              <input type="text" id="c_badge" placeholder="e.g. NEW BATCH or POPULAR">
+              <input type="text" id="c_badge" placeholder="e.g. High Demand or New Batch">
+              <div style="display: flex; gap: 6px; margin-top: 5px;">
+                <button type="button" class="btn btn-secondary" style="padding: 2px 8px; font-size: 0.72rem;" onclick="document.getElementById('c_badge').value = 'High Demand'">High Demand</button>
+                <button type="button" class="btn btn-secondary" style="padding: 2px 8px; font-size: 0.72rem;" onclick="document.getElementById('c_badge').value = 'New Batch'">New Batch</button>
+                <button type="button" class="btn btn-secondary" style="padding: 2px 8px; font-size: 0.72rem;" onclick="document.getElementById('c_badge').value = ''">None</button>
+              </div>
             </div>
           </div>
 
