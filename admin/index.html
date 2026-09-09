@@ -67,6 +67,12 @@
         <div class="form-group">
           <label for="ghTokenInput">GitHub Personal Access Token (PAT) *</label>
           <input type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx or github_pat_..." required autocomplete="current-password">
+          <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+            <input type="checkbox" id="rememberTokenCheckbox" checked style="width: auto; cursor: pointer;">
+            <label for="rememberTokenCheckbox" style="margin-bottom: 0; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--admin-text-muted);">
+              Remember token on this browser (Saved securely in your local browser only)
+            </label>
+          </div>
           <span class="form-hint">Requires <strong>Contents: Read and write</strong> permission on your repository.</span>
         </div>
 

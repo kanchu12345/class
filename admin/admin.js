@@ -99,7 +99,7 @@
   // 1. AUTHENTICATION & INITIALIZATION
   // --------------------------------------------------------------------------
   function checkExistingSession() {
-    githubToken = sessionStorage.getItem('ss_gh_token') || '';
+    githubToken = sessionStorage.getItem('ss_gh_token') || localStorage.getItem('ss_gh_token') || '';
     repoOwner = localStorage.getItem('ss_repo_owner') || 'kanchu12345';
     repoName = localStorage.getItem('ss_repo_name') || 'class';
     repoBranch = localStorage.getItem('ss_repo_branch') || 'main';
@@ -110,7 +110,9 @@
     const repoInp = document.getElementById('repoNameInput');
     const imgbbInp = document.getElementById('imgbbKeyInput');
     const settingsImgbb = document.getElementById('settingsImgbbKey');
+    const tokenInp = document.getElementById('ghTokenInput');
 
+    if (tokenInp && githubToken) tokenInp.value = githubToken;
     if (ownerInp) ownerInp.value = repoOwner;
     if (repoInp) repoInp.value = repoName;
     if (imgbbInp) imgbbInp.value = imgbbApiKey;
@@ -147,6 +149,7 @@
       const ownerInp = document.getElementById('repoOwnerInput');
       const repoInp = document.getElementById('repoNameInput');
       const imgbbInp = document.getElementById('imgbbKeyInput');
+      const rememberCheckbox = document.getElementById('rememberTokenCheckbox');
 
       const token = tokenInp?.value.trim();
       const owner = ownerInp?.value.trim() || 'kanchu12345';
@@ -163,8 +166,13 @@
       repoName = repo;
       imgbbApiKey = imgbb;
 
-      // Store in browser session only
+      // Store in browser session & local storage if checked
       sessionStorage.setItem('ss_gh_token', token);
+      if (rememberCheckbox && rememberCheckbox.checked) {
+        localStorage.setItem('ss_gh_token', token);
+      } else {
+        localStorage.removeItem('ss_gh_token');
+      }
       localStorage.setItem('ss_repo_owner', owner);
       localStorage.setItem('ss_repo_name', repo);
       if (imgbb) localStorage.setItem('ss_imgbb_key', imgbb);
@@ -180,6 +188,7 @@
         return;
       }
       sessionStorage.removeItem('ss_gh_token');
+      localStorage.removeItem('ss_gh_token');
       githubToken = '';
       currentContent = null;
       currentSha = null;
