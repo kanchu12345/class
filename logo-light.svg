@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 140" width="620" height="140" fill="none">
+  <!-- Physics Icon Mark (Light on Dark Variant) -->
+  <g transform="translate(10, 10)">
+    <!-- Orbit 1 (Crisp off-white) -->
+    <ellipse cx="60" cy="60" rx="52" ry="21" transform="rotate(-28 60 60)" stroke="#FAF9F6" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <!-- Orbit 2 (Energetic Teal dashed path) -->
+    <ellipse cx="60" cy="60" rx="52" ry="21" transform="rotate(34 60 60)" stroke="#17B6A7" stroke-width="3.5" stroke-dasharray="6 7" stroke-linecap="round" fill="none" opacity="0.85"/>
+    <!-- Harmonic Sine Wave (Vivid Amber Accent) -->
+    <path d="M 12 60 Q 36 24 60 60 T 108 60" stroke="#F5A623" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Core Nucleus & Focal Point -->
+    <circle cx="60" cy="60" r="9" fill="#FAF9F6"/>
+    <circle cx="60" cy="60" r="5" fill="#F5A623"/>
+    <!-- Active Electron on Orbit in Teal -->
+    <circle cx="98" cy="40" r="6" fill="#17B6A7"/>
+    <circle cx="98" cy="40" r="2.5" fill="#FAF9F6"/>
+    <!-- Quantum Coordinate Ticks -->
+    <line x1="60" y1="16" x2="60" y2="25" stroke="#17B6A7" stroke-width="3" stroke-linecap="round"/>
+    <line x1="60" y1="95" x2="60" y2="104" stroke="#17B6A7" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography (High Legibility on Dark Backgrounds) -->
+  <g transform="translate(142, 0)">
+    <!-- Primary Name -->
+    <text x="0" y="51" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="31" font-weight="800" fill="#FAF9F6" letter-spacing="-0.5">SURESH SENANAYAKE</text>
+    <!-- Subject & Specialty in Vivid Amber -->
+    <text x="2" y="82" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#F5A623" letter-spacing="2.8">PHYSICS CLASSES</text>
+    <!-- Location Pill with Teal Accent -->
+    <rect x="2" y="96" width="90" height="22" rx="4" fill="#17B6A7"/>
+    <text x="47" y="111" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="800" fill="#07192F" text-anchor="middle" letter-spacing="1.2">GAMPAHA</text>
+    <!-- Subtitle / Mediums in Soft Ice Blue -->
+    <text x="104" y="112" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#C5D5EB" letter-spacing="0.5">A/L &amp; O/L • ENGLISH &amp; SINHALA MEDIUM</text>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <!-- Rounded Base Badge for Favicon & App Icon -->
+  <rect width="512" height="512" rx="112" fill="#0B2545"/>
+  <g transform="translate(256, 256)">
+    <!-- Primary Orbital Ring -->
+    <ellipse cx="0" cy="0" rx="180" ry="72" transform="rotate(-30)" stroke="#FAF9F6" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <!-- Secondary Dashed Orbital Ring -->
+    <ellipse cx="0" cy="0" rx="180" ry="72" transform="rotate(32)" stroke="#FAF9F6" stroke-width="14" stroke-dasharray="16 20" stroke-linecap="round" fill="none" opacity="0.35"/>
+    <!-- Harmonic Sine Wave (Vivid Amber #F5A623) -->
+    <path d="M -165 0 Q -82 -112 0 0 T 165 0" stroke="#F5A623" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Central Nucleus -->
+    <circle cx="0" cy="0" r="32" fill="#FAF9F6"/>
+    <circle cx="0" cy="0" r="18" fill="#F5A623"/>
+    <!-- Active Electron Particle on Orbit in Energetic Teal (#17B6A7) -->
+    <circle cx="126" cy="-74" r="22" fill="#17B6A7"/>
+    <circle cx="126" cy="-74" r="9" fill="#FAF9F6"/>
+  </g>
+</svg>
