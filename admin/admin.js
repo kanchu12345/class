@@ -16,7 +16,7 @@
   let repoName = 'class';
   let repoBranch = 'main';
   let contentFilePath = 'data/content.json';
-  let imgbbApiKey = '';
+  let imgbbApiKey = '580db6f671331120289dba6d8ec108c2';
 
   let currentSha = null;
   let currentContent = null;
@@ -103,7 +103,7 @@
     repoOwner = localStorage.getItem('ss_repo_owner') || 'kanchu12345';
     repoName = localStorage.getItem('ss_repo_name') || 'class';
     repoBranch = localStorage.getItem('ss_repo_branch') || 'main';
-    imgbbApiKey = localStorage.getItem('ss_imgbb_key') || '';
+    imgbbApiKey = localStorage.getItem('ss_imgbb_key') || '580db6f671331120289dba6d8ec108c2';
 
     // Populate login form if elements exist
     const ownerInp = document.getElementById('repoOwnerInput');
@@ -151,7 +151,7 @@
       const token = tokenInp?.value.trim();
       const owner = ownerInp?.value.trim() || 'kanchu12345';
       const repo = repoInp?.value.trim() || 'class';
-      const imgbb = imgbbInp?.value.trim() || '';
+      const imgbb = imgbbInp?.value.trim() || '580db6f671331120289dba6d8ec108c2';
 
       if (!token) {
         alert('Please enter your GitHub Personal Access Token.');
@@ -311,7 +311,7 @@
   // 3. IMGBB API IMAGE UPLOADER
   // --------------------------------------------------------------------------
   async function uploadImageToImgBB(file) {
-    const activeKey = imgbbApiKey || localStorage.getItem('ss_imgbb_key') || '';
+    const activeKey = imgbbApiKey || localStorage.getItem('ss_imgbb_key') || '580db6f671331120289dba6d8ec108c2';
     if (!activeKey) {
       alert('Please enter your ImgBB API Key in the Settings tab or on the upload prompt to enable automatic image hosting.');
       return null;
