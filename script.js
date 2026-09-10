@@ -257,6 +257,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      // Update Testimonials Dynamically
+      if (Array.isArray(data.testimonials) && data.testimonials.length > 0) {
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        data.testimonials.forEach((t, idx) => {
+          if (testimonialCards[idx]) {
+            const nameEl = testimonialCards[idx].querySelector('.student-name');
+            if (nameEl && t.student_name) nameEl.textContent = t.student_name;
+            const facEl = testimonialCards[idx].querySelector('.student-faculty');
+            if (facEl && t.faculty_en) {
+              facEl.setAttribute('data-en', t.faculty_en);
+              facEl.setAttribute('data-si', t.faculty_si || t.faculty_en);
+            }
+          }
+        });
+      }
+
+      // Update FAQ Dynamically
+      if (Array.isArray(data.faqs) && data.faqs.length > 0) {
+        const faqItems = document.querySelectorAll('.faq-item');
+        data.faqs.forEach((f, idx) => {
+          if (faqItems[idx]) {
+            const qSpan = faqItems[idx].querySelector('.faq-question span[data-en]');
+            if (qSpan && f.q_en) {
+              qSpan.setAttribute('data-en', f.q_en);
+              qSpan.setAttribute('data-si', f.q_si || f.q_en);
+            }
+            const aP = faqItems[idx].querySelector('.faq-answer p[data-en]');
+            if (aP && f.a_en) {
+              aP.setAttribute('data-en', f.a_en);
+              aP.setAttribute('data-si', f.a_si || f.a_en);
+            }
+          }
+        });
+      }
+
       // Re-apply language to newly updated DOM elements
       applyLanguage(currentLang);
     } catch (err) {
@@ -419,6 +454,122 @@ document.addEventListener('DOMContentLoaded', () => {
         formSuccessMessage.style.display = 'block';
       }
     });
+  }
+
+  // --------------------------------------------------------------------------
+  // 7. FAQ ACCORDION INTERACTION
+  // --------------------------------------------------------------------------
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+      const isOpen = item.classList.contains('active');
+
+      // Close all other accordion items for clean accordion UX
+      document.querySelectorAll('.faq-item.active').forEach(openItem => {
+        if (openItem !== item) {
+          openItem.classList.remove('active');
+          const otherBtn = openItem.querySelector('.faq-question');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      if (isOpen) {
+        item.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // --------------------------------------------------------------------------
+  // 8. VIDEO SHOWCASE MODAL
+  // --------------------------------------------------------------------------
+  const openVideoBtn = document.getElementById('openVideoBtn');
+  const videoModal = document.getElementById('videoModal');
+  const closeVideoModal = document.getElementById('closeVideoModal');
+  const videoIframe = document.getElementById('videoIframe');
+  const defaultVideoSrc = videoIframe ? videoIframe.src : '';
+
+  function openModal() {
+    if (!videoModal) return;
+    videoModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (videoIframe && !videoIframe.src) {
+      videoIframe.src = defaultVideoSrc;
+    }
+  }
+
+  function closeModal() {
+    if (!videoModal) return;
+    videoModal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Pause video by refreshing iframe src
+    if (videoIframe) {
+      const currentSrc = videoIframe.src;
+      videoIframe.src = '';
+      setTimeout(() => { videoIframe.src = currentSrc; }, 120);
+    }
+  }
+
+  if (openVideoBtn) {
+    openVideoBtn.addEventListener('click', openModal);
+    openVideoBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
+      }
+    });
+  }
+
+  if (closeVideoModal) {
+    closeVideoModal.addEventListener('click', closeModal);
+  }
+
+  if (videoModal) {
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) {
+        closeModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // --------------------------------------------------------------------------
+  // 9. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+  // --------------------------------------------------------------------------
+  const revealElements = document.querySelectorAll('.reveal');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    // If reduced motion or older browser, activate immediately
+    revealElements.forEach(el => el.classList.add('active'));
+  } else {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
   }
 
 });

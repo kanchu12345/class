@@ -1,7 +1,7 @@
 {
   "hero": {
-    "badge_en": "G.C.E. A/L & O/L Physics • Gampaha Institute",
-    "badge_si": "අ.පො.ස. උසස් පෙළ සහ සාමාන්‍ය පෙළ භෞතික විද්‍යාව • ගම්පහ",
+    "badge_en": "2026 & 2027 A/L Physics Batches Now Enrolling • Gampaha",
+    "badge_si": "2026 සහ 2027 උසස් පෙළ භෞතික විද්‍යා නව කණ්ඩායම් ලියාපදිංචිය • ගම්පහ",
     "headline_en": "Master Physics with <span class='text-teal-highlight'>True Conceptual Clarity</span> & Exam Confidence",
     "headline_si": "නියම <span class='text-teal-highlight'>සංකල්පීය අවබෝධය</span> සමඟින් භෞතික විද්‍යාවට විශිෂ්ට සාමාර්ථයක්",
     "subline_en": "Structured, theory-driven, and past-paper proven physics classes conducted in both English and Sinhala mediums. Designed to build deep physical intuition, sharp mathematical problem-solving skills, and top island rankings.",
@@ -37,7 +37,7 @@
       "id": "stat-4",
       "num": "Gampaha",
       "colorClass": "teal-stat",
-      "label_en": "Premier Physical Institute Venue",
+      "label_en": "Central Institute Venue",
       "label_si": "ගම්පහ ප්‍රධාන පන්ති ශාලා පරිශ්‍රය"
     }
   ],
@@ -51,6 +51,10 @@
     "teacher_name": "Suresh Senanayake",
     "teacher_degree_en": "B.Sc. (Physical Science) • Senior Physics Educator",
     "teacher_degree_si": "B.Sc. (භෞතික විද්‍යා) • ප්‍රවීණ භෞතික විද්‍යා ආචාර්ය",
+    "photo": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80",
+    "video_title_en": "Watch Teaching Approach (1 Min Overview)",
+    "video_title_si": "ඉගැන්වීමේ ක්‍රමවේදය පිළිබඳ හැඳින්වීම (විනාඩි 1ක්)",
+    "video_embed_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "credentials": [
       {
         "en": "Over 15 years specializing in A/L & O/L Physics",
@@ -65,42 +69,19 @@
         "si": "ගම්පහ ප්‍රමුඛ ආයතනවල සිංහල හා ඉංග්‍රීසි මාධ්‍යයෙන් පන්ති මෙහෙයවීම"
       }
     ],
-    "philosophy_title_en": "An Academic Approach Focused on Conceptual Mastery",
-    "philosophy_title_si": "කටපාඩම් කිරීමෙන් ඔබ්බට ගිය සැබෑ සංකල්පීය අවබෝධය",
     "paragraph1_en": "Physics is often perceived by students as a difficult maze of complex formulas and challenging mathematics. However, when taught through first principles and real-world analogies, Physics becomes one of the most logical, scoring, and fascinating subjects in the Sri Lankan Advanced Level curriculum.",
     "paragraph1_si": "බොහෝ සිසුන්ට භෞතික විද්‍යාව යනු සූත්‍ර කටපාඩම් කරගත යුතු දුෂ්කර විෂයක් ලෙස පෙනුනද, මූලික භෞතික නියම හා තාර්කික සංකල්ප නිවැරදිව ගොඩනැගූ විට එය උසස් පෙළ විෂය ධාරාවේ ඉහළම ලකුණු ලබාගත හැකි වඩාත්ම විද්‍යාත්මක විෂය බවට පත්වේ.",
     "paragraph2_en": "In our classes at Gampaha, we don't encourage rote memorization. Every unit—from Mechanics and Waves to Fields and Electronics—is meticulously broken down into structured conceptual steps. Students learn the mathematical derivation, visual intuition, and exam-standard answer formulation required to tackle the trickiest MCQs and structured essay questions with absolute ease.",
     "paragraph2_si": "අපගේ ගම්පහ පන්තියේදී සූත්‍ර අන්ධ ලෙස කටපාඩම් කරවීමක් සිදු නොකෙරේ. යාන්ත්‍ර විද්‍යාවේ සිට නූතන භෞතික විද්‍යාව දක්වා සෑම ඒකකයක්ම පියවරෙන් පියවර මනාව පැහැදිලි කෙරේ. විභාගයේදී බහුවරණ (MCQ) සහ ව්‍යුහගත රචනා ප්‍රශ්නවලට නිවැරදිව හා කාලය ඉතිරි කරගනිමින් පිළිතුරු ලිවීමේ ශිල්පීය ක්‍රමවේද සිසුන්ට හුරු කරවනු ලැබේ.",
-    "pillars": [
-      {
-        "num": "1",
-        "title_en": "First-Principles Theory",
-        "title_si": "මූලික සංකල්පීය සිද්ධාන්ත",
-        "desc_en": "Deep understanding of laws and derivations rather than superficial formula cramming.",
-        "desc_si": "නියමයන් සහ සමීකරණ ගොඩනැගෙන ආකාරය පිළිබඳ මනා අවබෝධය."
-      },
-      {
-        "num": "2",
-        "title_en": "Analytical Problem Solving",
-        "title_si": "විශ්ලේෂණාත්මක ගැටලු විසඳීම",
-        "desc_en": "Step-by-step mathematical breakdown for complex multi-concept exam scenarios.",
-        "desc_si": "සංකීර්ණ බහුවිධ ගැටලු පහසුවෙන් විසඳීමේ ක්‍රමානුකූල මගපෙන්වීම."
-      },
-      {
-        "num": "3",
-        "title_en": "Individual Doubt Clearance",
-        "title_si": "තනි පුද්ගල අවධානය හා ගැටලු විසඳීම",
-        "desc_en": "Dedicated attention to each student's pace, ensuring no foundational gaps remain.",
-        "desc_si": "සෑම සිසුවෙකුගේම දුර්වලතා හඳුනාගෙන අවශ්‍ය පෞද්ගලික අවධානය ලබාදීම."
-      }
-    ]
+    "philosophy_title_en": "An Academic Approach Focused on Conceptual Mastery",
+    "philosophy_title_si": "කටපාඩම් කිරීමෙන් ඔබ්බට ගිය සැබෑ සංකල්පීය අවබෝධය"
   },
   "classes": [
     {
       "id": "al-theory",
       "tag": "A/L Course",
       "tagClass": "tag-al",
-      "badge": "",
+      "badge": "2026/2027",
       "medium_en": "Sinhala & English Medium",
       "medium_si": "සිංහල හා ඉංග්‍රීසි මාධ්‍ය",
       "title_en": "G.C.E. A/L Physics (Theory)",
@@ -154,13 +135,13 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Sunday 8:00 AM – 2:00 PM",
       "schedule_si": "ඉරිදා පෙ.ව. 8:00 – ප.ව. 2:00",
-      "image": ""
+      "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "ol-science",
       "tag": "O/L Science",
       "tagClass": "tag-ol",
-      "badge": "",
+      "badge": "Foundation",
       "medium_en": "Sinhala & English Medium",
       "medium_si": "සිංහල හා ඉංග්‍රීසි මාධ්‍ය",
       "title_en": "G.C.E. O/L Science & Physics Foundation",
@@ -184,13 +165,13 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Wednesday 3:30 PM – 6:30 PM",
       "schedule_si": "බදාදා ප.ව. 3:30 – 6:30",
-      "image": ""
+      "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "practical-workshop",
       "tag": "Practicals",
       "tagClass": "tag-prac",
-      "badge": "",
+      "badge": "Hands-on",
       "medium_en": "Interactive Sessions",
       "medium_si": "ප්‍රායෝගික පරීක්ෂණ",
       "title_en": "A/L Physics Practical & Graphs Workshop",
@@ -214,7 +195,57 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Monthly Special Workshops",
       "schedule_si": "මාසික විශේෂ වැඩමුළු",
-      "image": ""
+      "image": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "test-1",
+      "student_name": "Kavindu Wickramasinghe",
+      "achievement_en": "Island Rank 14 • Gampaha District Rank 02",
+      "achievement_si": "දිවයිනේ 14 වන ස්ථානය • ගම්පහ දිස්ත්‍රික්කයේ 02 වන ස්ථානය",
+      "z_score": "2.4812",
+      "grades": "3 A's",
+      "faculty_en": "Faculty of Engineering, University of Moratuwa",
+      "faculty_si": "මොරටුව විශ්වවිද්‍යාලයේ ඉංජිනේරු පීඨය",
+      "quote_en": "Mr. Suresh taught me that Physics is not about blindly memorizing 200 formulas, but deriving everything logically from 5 fundamental principles. That clarity allowed me to solve even the most complex 2nd paper questions within record time.",
+      "quote_si": "සුරේෂ් සර් මට කියාදුන්නේ භෞතික විද්‍යාව කියන්නේ සූත්‍ර 200ක් කටපාඩම් කිරීම නොව මූලික නියමයන්ගෙන් සියල්ල තාර්කිකව ගොඩනැගීම බවයි. ඒ පැහැදිලි අවබෝධය නිසා සංකීර්ණම රචනා ප්‍රශ්න පවා ඉතා කෙටි කාලයකින් නිරවුල්ව විසඳීමට මට හැකිවුණා."
+    },
+    {
+      "id": "test-2",
+      "student_name": "Dulmi Senarathna",
+      "achievement_en": "Gampaha District Rank 08 • 3 A's",
+      "achievement_si": "ගම්පහ දිස්ත්‍රික්කයේ 08 වන ස්ථානය • විශිෂ්ට සාමාර්ථ (3 A)",
+      "z_score": "2.3950",
+      "grades": "3 A's",
+      "faculty_en": "Faculty of Medicine, University of Colombo",
+      "faculty_si": "කොළඹ විශ්වවිද්‍යාලයේ වෛද්‍ය පීඨය",
+      "quote_en": "As a biology stream student, Physics was my biggest worry until I joined Mr. Suresh's theory class. His unit tutorials, step-by-step MCQ elimination techniques, and continuous guidance gave me the highest confidence for an 'A' grade.",
+      "quote_si": "ජීව විද්‍යා අංශයේ සිසුවියක් ලෙස මට භෞතික විද්‍යාව ලොකු අභියෝගයක් වුණා. නමුත් සුරේෂ් සර්ගේ සිද්ධාන්ත පන්තියට සහ ප්‍රශ්න පත්‍ර පන්තියට සම්බන්ධ වීමෙන් පසු MCQ කෙටි ක්‍රම සහ නිබන්ධන මගින් මට භෞතික විද්‍යාවට A සාමාර්ථයක් ලබාගැනීමට විශාල මගපෙන්වීමක් ලැබුණා."
+    },
+    {
+      "id": "test-3",
+      "student_name": "Pathum Jayawardena",
+      "achievement_en": "Gampaha District Rank 19 • 3 A's",
+      "achievement_si": "ගම්පහ දිස්ත්‍රික්කයේ 19 වන ස්ථානය • විශිෂ්ට සාමාර්ථ (3 A)",
+      "z_score": "2.2140",
+      "grades": "3 A's",
+      "faculty_en": "Faculty of Engineering, University of Peradeniya",
+      "faculty_si": "පේරාදෙණිය විශ්වවිද්‍යාලයේ ඉංජිනේරු පීඨය",
+      "quote_en": "The 40-year past paper analysis is unmatched. We were trained to understand examiner psychology and marking schemes. By the time I sat for the actual A/L exam, the paper felt like just another weekly class test.",
+      "quote_si": "වසර 40ක පසුගිය විභාග ප්‍රශ්න පත්‍ර විවරණය අතිවිශිෂ්ටයි. ලකුණු දීමේ පටිපාටියට අනුකූලව පිළිතුරු ලියන ආකාරය පුහුණු කළ නිසා සැබෑ උසස් පෙළ විභාග ශාලාවේදී කිසිදු බියක් හෝ චකිතයක් නොදැනී උපරිම ලකුණු ලබාගැනීමට මට හැකිවුණා."
+    },
+    {
+      "id": "test-4",
+      "student_name": "Nethmi Fernando",
+      "achievement_en": "O/L Science Distinction ('A') • School 1st",
+      "achievement_si": "සාමාන්‍ය පෙළ විද්‍යාව 'A' සාමාර්ථය • පාසලේ ප්‍රථමයා",
+      "z_score": "Distinction",
+      "grades": "A Grade",
+      "faculty_en": "Now enrolled in 2026 A/L Physics Theory",
+      "faculty_si": "දැනට 2026 උසස් පෙළ භෞතික විද්‍යා පන්තියේ ඉගෙනුම ලබයි",
+      "quote_en": "The foundation class made O/L Science intuitive and exciting. It bridged the gap directly to A/L Physics, so Grade 12 did not feel overwhelming at all.",
+      "quote_si": "සාමාන්‍ය පෙළ විද්‍යා පදනම් පන්තිය නිසා විද්‍යාවට ඉහළම සාමාර්ථයක් ලබාගන්න වගේම, උසස් පෙළ භෞතික විද්‍යාවට කිසිදු අපහසුවක් නැතිව ශක්තිමත් පදනමක් ගොඩනගා ගැනීමට හැකිවුණා."
     }
   ],
   "why_choose_us": [
@@ -247,28 +278,141 @@
       "desc_si": "ඉංග්‍රීසි මාධ්‍ය සහ සිංහල මාධ්‍ය සිසුන් සඳහා වෙන වෙනම පැවැත්වෙන පන්ති සහ මාධ්‍යයට ගැළපෙන පරිපූර්ණ නිබන්ධන මාලාව."
     }
   ],
+  "fees": [
+    {
+      "id": "fee-1",
+      "badge": "Comprehensive",
+      "title_en": "2026 / 2027 A/L Physics Theory",
+      "title_si": "2026 / 2027 උසස් පෙළ සිද්ධාන්ත",
+      "medium_en": "English & Sinhala Mediums",
+      "medium_si": "සිංහල හා ඉංග්‍රීසි මාධ්‍ය",
+      "price": "Rs. 3,500",
+      "period_en": "per month (4 sessions)",
+      "period_si": "මසකට (සැසි 4ක් සඳහා)",
+      "features": [
+        { "en": "5.5 hours per weekly session", "si": "සතියකට පැය 5.5ක සවිස්තරාත්මක දේශනය" },
+        { "en": "Complete printed theory packs included", "si": "පරිපූර්ණ මුද්‍රිත නිබන්ධන නොමිලේ" },
+        { "en": "Monthly unit examination & evaluation", "si": "මාසික ඒකක ඇගයීම් පරීක්ෂණ" },
+        { "en": "Individual doubt-clearance support", "si": "පෞද්ගලික ගැටලු සාකච්ඡා කිරීමේ පහසුකම" }
+      ]
+    },
+    {
+      "id": "fee-2",
+      "badge": "High Impact",
+      "title_en": "A/L Physics Revision & Paper Class",
+      "title_si": "උසස් පෙළ පුනරීක්ෂණ හා ප්‍රශ්න පත්‍ර",
+      "medium_en": "English & Sinhala Mediums",
+      "medium_si": "සිංහල හා ඉංග්‍රීසි මාධ්‍ය",
+      "price": "Rs. 3,500",
+      "period_en": "per month (4 sessions)",
+      "period_si": "මසකට (සැසි 4ක් සඳහා)",
+      "features": [
+        { "en": "6 hours weekly timed paper drill", "si": "සතියකට පැය 6ක කාල කළමනාකරණ පුහුණුව" },
+        { "en": "50 MCQs speed elimination methods", "si": "MCQ 50 සඳහා කෙටි ක්‍රම හා ලකුණු ඉහළ දැමීම" },
+        { "en": "Marking scheme breakdown (1980–present)", "si": "ලකුණු දීමේ පටිපාටිය (Marking Scheme) සාකච්ඡාව" },
+        { "en": "Individual marked papers returned weekly", "si": "සෑම සතියකම ලකුණු යෙදූ පත්‍රිකා නැවත ලබාදීම" }
+      ]
+    },
+    {
+      "id": "fee-3",
+      "badge": "Foundation",
+      "title_en": "G.C.E. O/L Science & Physics Foundation",
+      "title_si": "සාමාන්‍ය පෙළ විද්‍යාව හා භෞතික විද්‍යා පදනම",
+      "medium_en": "Grade 10 & 11 (Both Mediums)",
+      "medium_si": "10 සහ 11 ශ්‍රේණි (මාධ්‍ය දෙකෙන්ම)",
+      "price": "Rs. 2,500",
+      "period_en": "per month (4 sessions)",
+      "period_si": "මසකට (සැසි 4ක් සඳහා)",
+      "features": [
+        { "en": "3 hours weekly concept & theory session", "si": "සතියකට පැය 3ක න්‍යායාත්මක හා ගැටලු විසඳීම" },
+        { "en": "Targeting 'A' Grade in O/L Science", "si": "සාමාන්‍ය පෙළ විද්‍යාවට 'A' සාමාර්ථයක් සහතික කිරීම" },
+        { "en": "Full unit tutorial & model paper books", "si": "ඒකක නිබන්ධන හා ආදර්ශ ප්‍රශ්න පත්‍ර කට්ටල" },
+        { "en": "Seamless transition to A/L Physics", "si": "උසස් පෙළ භෞතික විද්‍යාව සඳහා පූර්ව සූදානම" }
+      ]
+    },
+    {
+      "id": "fee-4",
+      "badge": "Workshop",
+      "title_en": "A/L Practical & Graphs Workshop",
+      "title_si": "ප්‍රායෝගික පරීක්ෂණ හා ප්‍රස්තාර වැඩමුළුව",
+      "medium_en": "Monthly Special Session",
+      "medium_si": "මාසික විශේෂ වැඩමුළුව",
+      "price": "Rs. 2,000",
+      "period_en": "per session",
+      "period_si": "එක් සැසියක් සඳහා",
+      "features": [
+        { "en": "Full lab apparatus & error calculation analysis", "si": "ප්‍රායෝගික උපකරණ භාවිතය හා දෝෂ ගණනය" },
+        { "en": "Slope deductions & zero-loss essay methods", "si": "ප්‍රස්තාර ඇඳීමේ සහ අනුක්‍රමණ ශිල්ප ක්‍රම" },
+        { "en": "Special practical handbook provided", "si": "විශේෂිත ප්‍රායෝගික පරීක්ෂණ අත්පොත" },
+        { "en": "Hands-on guidance for structured paper", "si": "ව්‍යුහගත රචනා ප්‍රශ්න පත්‍රයට උපරිම ලකුණු" }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq-1",
+      "q_en": "What is the average class size, and will my child receive personal attention?",
+      "q_si": "පන්තියක සිටින සාමාන්‍ය සිසුන් සංඛ්‍යාව සහ පෞද්ගලික අවධානය කෙසේද?",
+      "a_en": "Unlike overcrowded mega-halls where students are just anonymous numbers, our Gampaha institute maintains structured, balanced batches. Mr. Suresh and our dedicated teaching assistants personally review student progress, answer doubts after every session, and provide one-on-one academic guidance.",
+      "a_si": "සිසුන් දහස් ගණනක් අතරමං වන දැවැන්ත ශාලා වෙනුවට, අප පවත්වාගෙන යන්නේ මනා විනයක් සහ කළමනාකරණයක් සහිත සීමිත සිසුන් සංඛ්‍යාවකින් යුත් පන්ති වේ. දේශනයෙන් පසුව ඕනෑම සිසුවෙකුට තම ගැටලු ගුරුතුමා සමග සෘජුව සාකච්ඡා කර නිරාකරණය කරගත හැක."
+    },
+    {
+      "id": "faq-2",
+      "q_en": "Are comprehensive printed notes and tutorials provided?",
+      "q_si": "සම්පූර්ණ මුද්‍රිත නිබන්ධන සහ සටහන් ලබා දෙන්නේද?",
+      "a_en": "Yes, absolutely. All enrolled students receive complete, beautifully typeset printed theory workbooks, unit-by-unit question banks, and past paper booklets at the beginning of each module with no extra materials charge.",
+      "a_si": "ඔව්, නියත වශයෙන්ම. ලියාපදිංචි වන සෑම සිසුවෙකුටම සම්පූර්ණ විෂය නිර්දේශය ආවරණය වන පරිදි සකස් කළ උසස් තත්ත්වයේ මුද්‍රිත සිද්ධාන්ත නිබන්ධන, ඒකක ප්‍රශ්නාවලි සහ පසුගිය විභාග ප්‍රශ්න පත්‍ර කට්ටල කිසිදු අමතර ගාස්තුවකින් තොරව ලබාදේ."
+    },
+    {
+      "id": "faq-3",
+      "q_en": "Are online class recordings or live Zoom access available if a student is sick?",
+      "q_si": "අසනීපයක් හෝ හදිසි අවස්ථාවකදී මාර්ගගත (Online) පන්ති හෝ Recordings ලබාගත හැකිද?",
+      "a_en": "Yes. Every classroom session is digitally recorded. If a student misses a lecture due to illness or school examinations, they can access the full high-definition video recording via our student learning portal upon request.",
+      "a_si": "ඔව්. අසනීප තත්ත්වයක් හෝ පාසල් විභාගයක් හේතුවෙන් පන්තියකට සහභාගී වීමට නොහැකි වුවහොත්, එම සම්පූර්ණ දේශනයේ HD පටිගත කිරීම් (Recordings) අපගේ ශිෂ්‍ය ද්වාරය හරහා ලබාගැනීමට පහසුකම් සලසා ඇත."
+    },
+    {
+      "id": "faq-4",
+      "q_en": "What is the policy for missed classes?",
+      "q_si": "පන්තියක් මගහැරුණහොත් ආවරණය කරගන්නේ කෙසේද?",
+      "a_en": "Students who miss a weekend batch may either attend the parallel batch in the same week, obtain the lecture recording, or schedule a 15-minute doubt-clearance session with the instructor during weekday office hours.",
+      "a_si": "යම් සතියක පන්තිය මගහැරුණහොත්, එම සතියේදීම පැවැත්වෙන සමාන්තර කණ්ඩායමට සහභාගී විය හැක. නැතහොත් වීඩියෝ පටිගත කිරීම් ලබාගෙන සතියේ දිනක පැමිණ ගැටලු නිරවුල් කරගත හැක."
+    },
+    {
+      "id": "faq-5",
+      "q_en": "Are English medium and Sinhala medium classes taught together or in separate sessions?",
+      "q_si": "ඉංග්‍රීසි සහ සිංහල මාධ්‍ය පන්ති එකටද වෙන වෙනමද පැවැත්වෙන්නේ?",
+      "a_en": "They are conducted in completely separate, dedicated batches with distinct printed tutorial materials, technical terminology explanations, and exam papers formulated specifically for each respective medium.",
+      "a_si": "ඉංග්‍රීසි මාධ්‍ය සහ සිංහල මාධ්‍ය පන්ති සම්පූර්ණයෙන්ම වෙන වෙනම කාලසටහන් යටතේ පැවැත්වේ. නිබන්ධන සහ විභාග ප්‍රශ්න පත්‍රද ඒ ඒ මාධ්‍යයට අනුකූලව සකසා ඇත."
+    }
+  ],
   "location": {
-    "kicker_en": "Class Venue",
-    "kicker_si": "පන්ති පැවැත්වෙන ස්ථානය",
-    "title_en": "Institute Location in Gampaha",
-    "title_si": "ගම්පහ පන්ති පැවැත්වෙන ආයතනය",
-    "subtitle_en": "Conveniently situated in central Gampaha with easy bus and train access for students.",
-    "subtitle_si": "දුම්රිය සහ බස් නැවතුම්පොළට ඉතා සමීපව ගම්පහ නගර මධ්‍යයේ පිහිටා ඇත.",
-    "institute_name_en": "Gampaha Tuition Institute",
-    "institute_name_si": "ගම්පහ අධ්‍යාපන ආයතනය",
-    "town_en": "Gampaha, Western Province, Sri Lanka",
-    "town_si": "ගම්පහ, බස්නාහිර පළාත, ශ්‍රී ලංකාව",
-    "landmark_en": "Walking distance from Gampaha Railway Station and Central Bus Stand",
-    "landmark_si": "ගම්පහ දුම්රිය ස්ථානයට සහ ප්‍රධාන බස් නැවතුම්පොළට පයින් යා හැකි දුරින්",
-    "facilities_en": "Air-conditioned lecture hall, multimedia projector facilities, student study lounge, and secure parking area.",
-    "facilities_si": "වායුසමනය කළ ශාලා පහසුකම්, ප්‍රොජෙක්ටර් තාක්ෂණය, ශිෂ්‍ය අධ්‍යයන පරිශ්‍රය සහ වාහන නැවැත්වීමේ පහසුකම්.",
-    "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.508544975231!2d79.98982347477174!3d7.09020599291244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb82be0a5629%3A0x6bcf7564d2d645e5!2sGampaha!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk"
+    "kicker_en": "Class Venue & Campus",
+    "kicker_si": "පන්ති පැවැත්වෙන ස්ථානය හා පරිශ්‍රය",
+    "title_en": "Suresh Senanayake Physics Institute",
+    "title_si": "සුරේෂ් සේනානායක භෞතික විද්‍යා අධ්‍යාපන ආයතනය",
+    "subtitle_en": "Conveniently situated in central Gampaha, walking distance from railway & bus terminals.",
+    "subtitle_si": "දුම්රිය සහ ප්‍රධාන බස් නැවතුම්පොළට ඉතා සමීපව ගම්පහ නගර මධ්‍යයේ පිහිටි නවීන පන්ති පරිශ්‍රය.",
+    "institute_name_en": "Suresh Senanayake Physics Institute",
+    "institute_name_si": "සුරේෂ් සේනානායක භෞතික විද්‍යා අධ්‍යාපන ආයතනය",
+    "town_en": "No. 42, Colombo Road, Gampaha, Western Province, Sri Lanka",
+    "town_si": "නො. 42, කොළඹ පාර, ගම්පහ, බස්නාහිර පළාත",
+    "landmark_en": "150m from Gampaha Railway Station & Flyover Junction",
+    "landmark_si": "ගම්පහ දුම්රිය ස්ථානයට සහ ගුවන් පාලම හන්දියට මීටර් 150ක දුරින්",
+    "facilities_en": "Air-conditioned modern lecture halls, digital projector facilities, quiet study lounge, and secure parking area.",
+    "facilities_si": "වායුසමනය කළ නවීන ශාලා පහසුකම්, ඩිජිටල් ප්‍රොජෙක්ටර් තාක්ෂණය, ශිෂ්‍ය අධ්‍යයන පරිශ්‍රය සහ වාහන නැවැත්වීමේ පහසුකම්.",
+    "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.4589252342085!2d79.99120007584102!3d7.092450016538408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb8251e604f1%3A0x33b4991aa1576aa2!2sGampaha%20Railway%20Station!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk",
+    "google_maps_url": "https://maps.google.com/?q=7.092450,79.993400+(Suresh+Senanayake+Physics+Classes+-+Gampaha)",
+    "campus_photo": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80"
   },
   "contact": {
     "email": "suresh.senanayake@gmail.com",
     "phone": "071 569 7364",
     "phone_raw": "0715697364",
     "whatsapp": "+94 77 917 0297",
-    "whatsapp_raw": "94779170297"
+    "whatsapp_raw": "94779170297",
+    "facebook": "https://facebook.com/SureshSenanayakePhysics",
+    "youtube": "https://youtube.com/@SureshSenanayakePhysics",
+    "instagram": "https://instagram.com/suresh_senanayake_physics",
+    "telegram": "https://t.me/SureshPhysicsGampaha"
   }
 }
