@@ -55,25 +55,48 @@
     <div class="auth-card">
       <div class="auth-header">
         <div class="auth-logo">⚛</div>
-        <h2>Physics CMS Login</h2>
-        <p>Manage tuition classes, timetables, and bilingual website content directly via GitHub Pages.</p>
+        <div class="auth-step-badge" id="authStepBadge">Step 1 of 2: Admin Credentials</div>
+        <h2 id="authHeading">Physics CMS Login</h2>
+        <p id="authSubheading">Enter your administrator credentials to access the tuition content management system.</p>
       </div>
 
-      <div class="security-note">
-        🛡️ <strong>Zero-Server Architecture:</strong> Your GitHub Personal Access Token is stored strictly in your browser's temporary <code>sessionStorage</code>. It is never transmitted to any third-party server or written to the repository.
-      </div>
+      <!-- LAYER 1: USERNAME & PASSWORD LOGIN SCREEN -->
+      <form id="credLoginForm">
+        <div id="credErrorAlert" class="auth-error-alert" style="display: none;">
+          ⚠️ Invalid credentials. Access denied.
+        </div>
 
-      <form id="loginForm">
         <div class="form-group">
-          <label for="ghTokenInput">GitHub Personal Access Token (PAT)</label>
-          <input type="password" id="ghTokenInput" placeholder="Pre-configured &amp; saved permanently" autocomplete="current-password">
-          <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
-            <input type="checkbox" id="rememberTokenCheckbox" checked style="width: auto; cursor: pointer;">
-            <label for="rememberTokenCheckbox" style="margin-bottom: 0; font-size: 0.82rem; font-weight: 500; cursor: pointer; color: var(--admin-text-muted);">
-              Remember token on this browser (Saved securely in your local browser only)
-            </label>
-          </div>
-          <span class="form-hint">Your permanent no-expiry token is pre-configured. You can also paste another token if needed.</span>
+          <label for="adminUsername">Username <span class="required-star">*</span></label>
+          <input type="text" id="adminUsername" placeholder="Enter admin username" required autocomplete="username" autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassword">Password <span class="required-star">*</span></label>
+          <input type="password" id="adminPassword" placeholder="Enter admin password" required autocomplete="current-password">
+        </div>
+
+        <div class="security-note" style="margin-top: 14px; font-size: 0.82rem;">
+          🔒 <strong>Two-Layer Security:</strong> A fixed administrator credential check precedes session repository authorization.
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 1rem; font-weight: 700; margin-top: 16px;">
+          Log In →
+        </button>
+      </form>
+
+      <!-- LAYER 2: GITHUB PERSONAL ACCESS TOKEN (SESSION STORAGE ONLY) -->
+      <form id="tokenLoginForm" style="display: none;">
+        <div id="tokenErrorAlert" class="auth-error-alert" style="display: none;"></div>
+
+        <div class="security-note" style="margin-bottom: 20px;">
+          🛡️ <strong>Session Security:</strong> Your GitHub Personal Access Token is stored strictly in your browser's temporary <code>sessionStorage</code>. It is never committed to GitHub, never placed in URLs, and is immediately destroyed when this browser tab closes.
+        </div>
+
+        <div class="form-group">
+          <label for="ghTokenInput">GitHub Personal Access Token (PAT) <span class="required-star">*</span></label>
+          <input type="password" id="ghTokenInput" placeholder="github_pat_..." required autocomplete="off">
+          <span class="form-hint">Paste your fine-grained token with <strong>Contents: Read and write</strong> permission.</span>
         </div>
 
         <div class="grid-2">
@@ -94,17 +117,20 @@
         </div>
 
         <div class="auth-guide-box">
-          <strong>Need a GitHub Token?</strong>
+          <strong>Need your token?</strong>
           <ol>
-            <li>Go to GitHub → <em>Settings</em> → <em>Developer Settings</em> → <em>Personal access tokens</em> → <em>Fine-grained tokens</em>.</li>
-            <li>Select repository: <strong>kanchu12345/class</strong>.</li>
-            <li>Under Repository permissions, set <strong>Contents</strong> to <em>Access: Read and write</em>.</li>
-            <li>Generate token and paste above.</li>
+            <li>GitHub → <em>Settings</em> → <em>Developer Settings</em> → <em>Personal access tokens</em>.</li>
+            <li>Select <strong>kanchu12345/class</strong> with <em>Contents: Read and write</em>.</li>
+            <li>Paste into the field above to start your editing session.</li>
           </ol>
         </div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 1rem; font-weight: 700;">
           🔓 Connect to GitHub CMS
+        </button>
+
+        <button type="button" id="switchUserBtn" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 10px; font-size: 0.86rem;">
+          ← Switch User / Log Out
         </button>
       </form>
     </div>

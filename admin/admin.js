@@ -96,60 +96,89 @@
   }
 
   // --------------------------------------------------------------------------
-  // 1. AUTHENTICATION & INITIALIZATION
+  // 1. TWO-LAYER AUTHENTICATION & SESSION MANAGEMENT
+  // Layer 1: Admin Username & Password check (client-side deterrence)
+  // Layer 2: Fine-grained GitHub Personal Access Token (sessionStorage only)
   // --------------------------------------------------------------------------
-  function checkExistingSession() {
-    // Check if token was provided via URL hash (e.g. /admin/#token=...) for 1-click permanent setup
-    if (window.location.hash) {
-      try {
-        const hashParams = new URLSearchParams(window.location.hash.substring(1));
-        const tokenFromHash = hashParams.get('token');
-        if (tokenFromHash) {
-          localStorage.setItem('ss_gh_token', tokenFromHash.trim());
-          sessionStorage.setItem('ss_gh_token', tokenFromHash.trim());
-          sessionStorage.removeItem('ss_logged_out');
-          // Clean the token from address bar so it stays secure and private
-          history.replaceState(null, '', window.location.pathname);
-        }
-      } catch (err) {
-        console.warn('Could not parse hash token', err);
-      }
-    }
+  const VALID_USERNAMES = ['admin', 'suresh'];
+  const VALID_PASSWORDS = ['physics2026', 'suresh2026'];
 
-    const isExplicitlyLoggedOut = sessionStorage.getItem('ss_logged_out') === 'true';
-    githubToken = (!isExplicitlyLoggedOut ? (sessionStorage.getItem('ss_gh_token') || localStorage.getItem('ss_gh_token')) : '') || '';
+  // This token must never be committed to the repository. Treat it like a password.
+  // Never store in localStorage or in URL parameters/hashes.
+
+  function checkExistingSession() {
+    const isCredAuthenticated = sessionStorage.getItem('ss_admin_auth') === 'true';
+    githubToken = sessionStorage.getItem('ss_gh_token') || '';
     repoOwner = localStorage.getItem('ss_repo_owner') || 'kanchu12345';
     repoName = localStorage.getItem('ss_repo_name') || 'class';
     repoBranch = localStorage.getItem('ss_repo_branch') || 'main';
     imgbbApiKey = localStorage.getItem('ss_imgbb_key') || '580db6f671331120289dba6d8ec108c2';
 
-    // Populate login form if elements exist
+    // Populate configuration fields if present
     const ownerInp = document.getElementById('repoOwnerInput');
     const repoInp = document.getElementById('repoNameInput');
     const imgbbInp = document.getElementById('imgbbKeyInput');
     const settingsImgbb = document.getElementById('settingsImgbbKey');
-    const tokenInp = document.getElementById('ghTokenInput');
 
-    if (tokenInp && githubToken) tokenInp.value = githubToken;
     if (ownerInp) ownerInp.value = repoOwner;
     if (repoInp) repoInp.value = repoName;
     if (imgbbInp) imgbbInp.value = imgbbApiKey;
     if (settingsImgbb) settingsImgbb.value = imgbbApiKey;
 
-    if (githubToken) {
+    if (!isCredAuthenticated) {
+      showLayer1();
+    } else if (!githubToken) {
+      showLayer2();
+    } else {
       showDashboard();
       fetchContentFromGitHub();
-    } else {
-      showLogin();
     }
   }
 
-  function showLogin() {
+  function showLayer1() {
     if (authWrapper) authWrapper.style.display = 'block';
     if (adminContainer) adminContainer.style.display = 'none';
     if (floatingSaveBar) floatingSaveBar.style.display = 'none';
     if (logoutBtn) logoutBtn.style.display = 'none';
     if (headerRepoInfo) headerRepoInfo.textContent = '';
+
+    const credForm = document.getElementById('credLoginForm');
+    const tokenForm = document.getElementById('tokenLoginForm');
+    const stepBadge = document.getElementById('authStepBadge');
+    const heading = document.getElementById('authHeading');
+    const subheading = document.getElementById('authSubheading');
+
+    if (credForm) credForm.style.display = 'block';
+    if (tokenForm) tokenForm.style.display = 'none';
+    if (stepBadge) stepBadge.textContent = 'Step 1 of 2: Admin Credentials';
+    if (heading) heading.textContent = 'Physics CMS Login';
+    if (subheading) subheading.textContent = 'Enter your administrator credentials to access the tuition content management system.';
+
+    const userInp = document.getElementById('adminUsername');
+    if (userInp) userInp.focus();
+  }
+
+  function showLayer2() {
+    if (authWrapper) authWrapper.style.display = 'block';
+    if (adminContainer) adminContainer.style.display = 'none';
+    if (floatingSaveBar) floatingSaveBar.style.display = 'none';
+    if (logoutBtn) logoutBtn.style.display = 'none';
+    if (headerRepoInfo) headerRepoInfo.textContent = '';
+
+    const credForm = document.getElementById('credLoginForm');
+    const tokenForm = document.getElementById('tokenLoginForm');
+    const stepBadge = document.getElementById('authStepBadge');
+    const heading = document.getElementById('authHeading');
+    const subheading = document.getElementById('authSubheading');
+
+    if (credForm) credForm.style.display = 'none';
+    if (tokenForm) tokenForm.style.display = 'block';
+    if (stepBadge) stepBadge.textContent = 'Step 2 of 2: Session Token Authorization';
+    if (heading) heading.textContent = 'Repository Access Verification';
+    if (subheading) subheading.textContent = 'Enter your GitHub Personal Access Token for this editing session.';
+
+    const tokenInp = document.getElementById('ghTokenInput');
+    if (tokenInp) tokenInp.focus();
   }
 
   function showDashboard() {
@@ -160,15 +189,46 @@
     if (headerRepoInfo) headerRepoInfo.textContent = `${repoOwner}/${repoName}`;
   }
 
-  if (loginForm) {
-    loginForm.addEventListener('submit', (e) => {
+  // --- LAYER 1: USERNAME & PASSWORD FORM SUBMIT ---
+  const credLoginForm = document.getElementById('credLoginForm');
+  if (credLoginForm) {
+    credLoginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      sessionStorage.removeItem('ss_logged_out');
+      const userInp = document.getElementById('adminUsername');
+      const passInp = document.getElementById('adminPassword');
+      const errAlert = document.getElementById('credErrorAlert');
+
+      const user = userInp?.value.trim().toLowerCase() || '';
+      const pass = passInp?.value.trim() || '';
+
+      const isValidUser = VALID_USERNAMES.includes(user);
+      const isValidPass = VALID_PASSWORDS.includes(pass);
+
+      if (isValidUser && isValidPass) {
+        if (errAlert) errAlert.style.display = 'none';
+        sessionStorage.setItem('ss_admin_auth', 'true');
+        showLayer2();
+      } else {
+        // Generic failure message — do not reveal which field was wrong
+        if (errAlert) {
+          errAlert.textContent = '⚠️ Invalid credentials. Access denied.';
+          errAlert.style.display = 'block';
+        }
+        if (passInp) passInp.value = '';
+      }
+    });
+  }
+
+  // --- LAYER 2: GITHUB TOKEN FORM SUBMIT ---
+  const tokenLoginForm = document.getElementById('tokenLoginForm');
+  if (tokenLoginForm) {
+    tokenLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
       const tokenInp = document.getElementById('ghTokenInput');
       const ownerInp = document.getElementById('repoOwnerInput');
       const repoInp = document.getElementById('repoNameInput');
       const imgbbInp = document.getElementById('imgbbKeyInput');
-      const rememberCheckbox = document.getElementById('rememberTokenCheckbox');
+      const errAlert = document.getElementById('tokenErrorAlert');
 
       const token = tokenInp?.value.trim() || '';
       const owner = ownerInp?.value.trim() || 'kanchu12345';
@@ -176,22 +236,21 @@
       const imgbb = imgbbInp?.value.trim() || '580db6f671331120289dba6d8ec108c2';
 
       if (!token) {
-        alert('Please enter your GitHub Personal Access Token.');
+        if (errAlert) {
+          errAlert.textContent = 'Please enter your GitHub Personal Access Token.';
+          errAlert.style.display = 'block';
+        }
         return;
       }
 
+      // This token must never be committed to the repository. Treat it like a password.
+      // Store strictly in sessionStorage (never localStorage, never URL)
       githubToken = token;
       repoOwner = owner;
       repoName = repo;
       imgbbApiKey = imgbb;
 
-      // Store in browser session & local storage if checked
       sessionStorage.setItem('ss_gh_token', token);
-      if (rememberCheckbox && rememberCheckbox.checked) {
-        localStorage.setItem('ss_gh_token', token);
-      } else {
-        localStorage.removeItem('ss_gh_token');
-      }
       localStorage.setItem('ss_repo_owner', owner);
       localStorage.setItem('ss_repo_name', repo);
       if (imgbb) localStorage.setItem('ss_imgbb_key', imgbb);
@@ -201,20 +260,31 @@
     });
   }
 
+  // Back to Layer 1 button
+  const switchUserBtn = document.getElementById('switchUserBtn');
+  if (switchUserBtn) {
+    switchUserBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('ss_admin_auth');
+      sessionStorage.removeItem('ss_gh_token');
+      githubToken = '';
+      showLayer1();
+    });
+  }
+
+  // Header Logout button
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
       if (hasUnsavedChanges && !confirm('You have unsaved changes. Logging out will discard them. Continue?')) {
         return;
       }
+      sessionStorage.removeItem('ss_admin_auth');
       sessionStorage.removeItem('ss_gh_token');
-      localStorage.removeItem('ss_gh_token');
-      sessionStorage.setItem('ss_logged_out', 'true');
       githubToken = '';
       currentContent = null;
       currentSha = null;
       hasUnsavedChanges = false;
-      showLogin();
-      showToast('Logged Out', 'Your session has ended. Click Connect to re-enter.', 'info');
+      showLayer1();
+      showToast('Logged Out', 'Your session token has been cleared from browser memory.', 'info');
     });
   }
 
