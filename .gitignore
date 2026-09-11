@@ -1,0 +1,11 @@
+# Environment & Secrets
+.env
+*.token
+*.secret
+admin_token.txt
+
+# OS & Temporary files
+Thumbs.db
+.DS_Store
+temp_*.html
+scratch/

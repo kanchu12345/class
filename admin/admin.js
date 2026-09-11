@@ -99,7 +99,25 @@
   // 1. AUTHENTICATION & INITIALIZATION
   // --------------------------------------------------------------------------
   function checkExistingSession() {
-    githubToken = sessionStorage.getItem('ss_gh_token') || localStorage.getItem('ss_gh_token') || '';
+    // Check if token was provided via URL hash (e.g. /admin/#token=...) for 1-click permanent setup
+    if (window.location.hash) {
+      try {
+        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        const tokenFromHash = hashParams.get('token');
+        if (tokenFromHash) {
+          localStorage.setItem('ss_gh_token', tokenFromHash.trim());
+          sessionStorage.setItem('ss_gh_token', tokenFromHash.trim());
+          sessionStorage.removeItem('ss_logged_out');
+          // Clean the token from address bar so it stays secure and private
+          history.replaceState(null, '', window.location.pathname);
+        }
+      } catch (err) {
+        console.warn('Could not parse hash token', err);
+      }
+    }
+
+    const isExplicitlyLoggedOut = sessionStorage.getItem('ss_logged_out') === 'true';
+    githubToken = (!isExplicitlyLoggedOut ? (sessionStorage.getItem('ss_gh_token') || localStorage.getItem('ss_gh_token')) : '') || '';
     repoOwner = localStorage.getItem('ss_repo_owner') || 'kanchu12345';
     repoName = localStorage.getItem('ss_repo_name') || 'class';
     repoBranch = localStorage.getItem('ss_repo_branch') || 'main';
@@ -145,13 +163,14 @@
   if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      sessionStorage.removeItem('ss_logged_out');
       const tokenInp = document.getElementById('ghTokenInput');
       const ownerInp = document.getElementById('repoOwnerInput');
       const repoInp = document.getElementById('repoNameInput');
       const imgbbInp = document.getElementById('imgbbKeyInput');
       const rememberCheckbox = document.getElementById('rememberTokenCheckbox');
 
-      const token = tokenInp?.value.trim();
+      const token = tokenInp?.value.trim() || '';
       const owner = ownerInp?.value.trim() || 'kanchu12345';
       const repo = repoInp?.value.trim() || 'class';
       const imgbb = imgbbInp?.value.trim() || '580db6f671331120289dba6d8ec108c2';
@@ -189,12 +208,13 @@
       }
       sessionStorage.removeItem('ss_gh_token');
       localStorage.removeItem('ss_gh_token');
+      sessionStorage.setItem('ss_logged_out', 'true');
       githubToken = '';
       currentContent = null;
       currentSha = null;
       hasUnsavedChanges = false;
       showLogin();
-      showToast('Logged Out', 'Your session token has been cleared from browser memory.', 'info');
+      showToast('Logged Out', 'Your session has ended. Click Connect to re-enter.', 'info');
     });
   }
 
