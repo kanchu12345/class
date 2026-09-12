@@ -105,7 +105,37 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Saturday 8:00 AM – 1:30 PM",
       "schedule_si": "සෙනසුරාදා පෙ.ව. 8:00 – ප.ව. 1:30",
-      "image": "https://i.ibb.co/zHZXLwyq/shanthiu.png"
+      "image": "https://i.ibb.co/rGpX7cFL/WEb-1.png"
+    },
+    {
+      "id": "ol-science",
+      "tag": "O/L Science",
+      "tagClass": "tag-ol",
+      "badge": "Foundation",
+      "medium_en": "Sinhala & English Medium",
+      "medium_si": "සිංහල හා ඉංග්‍රීසි මාධ්‍ය",
+      "title_en": "G.C.E. O/L Science & Physics Foundation",
+      "title_si": "සාමාන්‍ය පෙළ (O/L) විද්‍යාව සහ භෞතික විද්‍යා පදනම",
+      "desc_en": "Comprehensive O/L Science guidance with special emphasis on the Physics component. Prepares Grade 10 & 11 students to score an 'A' grade while building a solid launchpad for A/L Combined Maths or Biology streams.",
+      "desc_si": "10 සහ 11 ශ්‍රේණිවල සාමාන්‍ය පෙළ සිසුන්ට විද්‍යාව විෂයට 'A' සාමාර්ථයක් සහතික කරමින්, උසස් පෙළ ගණිත හෝ විද්‍යා අංශ සඳහා ශක්තිමත් පදනමක් ගොඩනැගීම.",
+      "features": [
+        {
+          "en": "Crystal-clear fundamental physical principles",
+          "si": "මූලික භෞතික විද්‍යා සංකල්ප පහසුවෙන් අවබෝධ කරවීම"
+        },
+        {
+          "en": "Unit-by-unit past paper & model questions",
+          "si": "ඒකක අනුව පසුගිය විභාග සහ ආදර්ශ ප්‍රශ්න"
+        },
+        {
+          "en": "Support for both English and Sinhala medium students",
+          "si": "ඉංග්‍රීසි හා සිංහල මාධ්‍ය සිසුන් දෙපිරිසටම"
+        }
+      ],
+      "venue": "Gampaha Institute",
+      "schedule_en": "Wednesday 3:30 PM – 6:30 PM",
+      "schedule_si": "බදාදා ප.ව. 3:30 – 6:30",
+      "image": "https://i.ibb.co/chFJrpFR/Web-2.png"
     },
     {
       "id": "al-revision",
@@ -136,36 +166,6 @@
       "schedule_en": "Sunday 8:00 AM – 2:00 PM",
       "schedule_si": "ඉරිදා පෙ.ව. 8:00 – ප.ව. 2:00",
       "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      "id": "ol-science",
-      "tag": "O/L Science",
-      "tagClass": "tag-ol",
-      "badge": "Foundation",
-      "medium_en": "Sinhala & English Medium",
-      "medium_si": "සිංහල හා ඉංග්‍රීසි මාධ්‍ය",
-      "title_en": "G.C.E. O/L Science & Physics Foundation",
-      "title_si": "සාමාන්‍ය පෙළ (O/L) විද්‍යාව සහ භෞතික විද්‍යා පදනම",
-      "desc_en": "Comprehensive O/L Science guidance with special emphasis on the Physics component. Prepares Grade 10 & 11 students to score an 'A' grade while building a solid launchpad for A/L Combined Maths or Biology streams.",
-      "desc_si": "10 සහ 11 ශ්‍රේණිවල සාමාන්‍ය පෙළ සිසුන්ට විද්‍යාව විෂයට 'A' සාමාර්ථයක් සහතික කරමින්, උසස් පෙළ ගණිත හෝ විද්‍යා අංශ සඳහා ශක්තිමත් පදනමක් ගොඩනැගීම.",
-      "features": [
-        {
-          "en": "Crystal-clear fundamental physical principles",
-          "si": "මූලික භෞතික විද්‍යා සංකල්ප පහසුවෙන් අවබෝධ කරවීම"
-        },
-        {
-          "en": "Unit-by-unit past paper & model questions",
-          "si": "ඒකක අනුව පසුගිය විභාග සහ ආදර්ශ ප්‍රශ්න"
-        },
-        {
-          "en": "Support for both English and Sinhala medium students",
-          "si": "ඉංග්‍රීසි හා සිංහල මාධ්‍ය සිසුන් දෙපිරිසටම"
-        }
-      ],
-      "venue": "Gampaha Institute",
-      "schedule_en": "Wednesday 3:30 PM – 6:30 PM",
-      "schedule_si": "බදාදා ප.ව. 3:30 – 6:30",
-      "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80"
     },
     {
       "id": "practical-workshop",
@@ -290,10 +290,22 @@
       "period_en": "per month (4 sessions)",
       "period_si": "මසකට (සැසි 4ක් සඳහා)",
       "features": [
-        { "en": "5.5 hours per weekly session", "si": "සතියකට පැය 5.5ක සවිස්තරාත්මක දේශනය" },
-        { "en": "Complete printed theory packs included", "si": "පරිපූර්ණ මුද්‍රිත නිබන්ධන නොමිලේ" },
-        { "en": "Monthly unit examination & evaluation", "si": "මාසික ඒකක ඇගයීම් පරීක්ෂණ" },
-        { "en": "Individual doubt-clearance support", "si": "පෞද්ගලික ගැටලු සාකච්ඡා කිරීමේ පහසුකම" }
+        {
+          "en": "5.5 hours per weekly session",
+          "si": "සතියකට පැය 5.5ක සවිස්තරාත්මක දේශනය"
+        },
+        {
+          "en": "Complete printed theory packs included",
+          "si": "පරිපූර්ණ මුද්‍රිත නිබන්ධන නොමිලේ"
+        },
+        {
+          "en": "Monthly unit examination & evaluation",
+          "si": "මාසික ඒකක ඇගයීම් පරීක්ෂණ"
+        },
+        {
+          "en": "Individual doubt-clearance support",
+          "si": "පෞද්ගලික ගැටලු සාකච්ඡා කිරීමේ පහසුකම"
+        }
       ]
     },
     {
@@ -307,10 +319,22 @@
       "period_en": "per month (4 sessions)",
       "period_si": "මසකට (සැසි 4ක් සඳහා)",
       "features": [
-        { "en": "6 hours weekly timed paper drill", "si": "සතියකට පැය 6ක කාල කළමනාකරණ පුහුණුව" },
-        { "en": "50 MCQs speed elimination methods", "si": "MCQ 50 සඳහා කෙටි ක්‍රම හා ලකුණු ඉහළ දැමීම" },
-        { "en": "Marking scheme breakdown (1980–present)", "si": "ලකුණු දීමේ පටිපාටිය (Marking Scheme) සාකච්ඡාව" },
-        { "en": "Individual marked papers returned weekly", "si": "සෑම සතියකම ලකුණු යෙදූ පත්‍රිකා නැවත ලබාදීම" }
+        {
+          "en": "6 hours weekly timed paper drill",
+          "si": "සතියකට පැය 6ක කාල කළමනාකරණ පුහුණුව"
+        },
+        {
+          "en": "50 MCQs speed elimination methods",
+          "si": "MCQ 50 සඳහා කෙටි ක්‍රම හා ලකුණු ඉහළ දැමීම"
+        },
+        {
+          "en": "Marking scheme breakdown (1980–present)",
+          "si": "ලකුණු දීමේ පටිපාටිය (Marking Scheme) සාකච්ඡාව"
+        },
+        {
+          "en": "Individual marked papers returned weekly",
+          "si": "සෑම සතියකම ලකුණු යෙදූ පත්‍රිකා නැවත ලබාදීම"
+        }
       ]
     },
     {
@@ -324,10 +348,22 @@
       "period_en": "per month (4 sessions)",
       "period_si": "මසකට (සැසි 4ක් සඳහා)",
       "features": [
-        { "en": "3 hours weekly concept & theory session", "si": "සතියකට පැය 3ක න්‍යායාත්මක හා ගැටලු විසඳීම" },
-        { "en": "Targeting 'A' Grade in O/L Science", "si": "සාමාන්‍ය පෙළ විද්‍යාවට 'A' සාමාර්ථයක් සහතික කිරීම" },
-        { "en": "Full unit tutorial & model paper books", "si": "ඒකක නිබන්ධන හා ආදර්ශ ප්‍රශ්න පත්‍ර කට්ටල" },
-        { "en": "Seamless transition to A/L Physics", "si": "උසස් පෙළ භෞතික විද්‍යාව සඳහා පූර්ව සූදානම" }
+        {
+          "en": "3 hours weekly concept & theory session",
+          "si": "සතියකට පැය 3ක න්‍යායාත්මක හා ගැටලු විසඳීම"
+        },
+        {
+          "en": "Targeting 'A' Grade in O/L Science",
+          "si": "සාමාන්‍ය පෙළ විද්‍යාවට 'A' සාමාර්ථයක් සහතික කිරීම"
+        },
+        {
+          "en": "Full unit tutorial & model paper books",
+          "si": "ඒකක නිබන්ධන හා ආදර්ශ ප්‍රශ්න පත්‍ර කට්ටල"
+        },
+        {
+          "en": "Seamless transition to A/L Physics",
+          "si": "උසස් පෙළ භෞතික විද්‍යාව සඳහා පූර්ව සූදානම"
+        }
       ]
     },
     {
@@ -341,10 +377,22 @@
       "period_en": "per session",
       "period_si": "එක් සැසියක් සඳහා",
       "features": [
-        { "en": "Full lab apparatus & error calculation analysis", "si": "ප්‍රායෝගික උපකරණ භාවිතය හා දෝෂ ගණනය" },
-        { "en": "Slope deductions & zero-loss essay methods", "si": "ප්‍රස්තාර ඇඳීමේ සහ අනුක්‍රමණ ශිල්ප ක්‍රම" },
-        { "en": "Special practical handbook provided", "si": "විශේෂිත ප්‍රායෝගික පරීක්ෂණ අත්පොත" },
-        { "en": "Hands-on guidance for structured paper", "si": "ව්‍යුහගත රචනා ප්‍රශ්න පත්‍රයට උපරිම ලකුණු" }
+        {
+          "en": "Full lab apparatus & error calculation analysis",
+          "si": "ප්‍රායෝගික උපකරණ භාවිතය හා දෝෂ ගණනය"
+        },
+        {
+          "en": "Slope deductions & zero-loss essay methods",
+          "si": "ප්‍රස්තාර ඇඳීමේ සහ අනුක්‍රමණ ශිල්ප ක්‍රම"
+        },
+        {
+          "en": "Special practical handbook provided",
+          "si": "විශේෂිත ප්‍රායෝගික පරීක්ෂණ අත්පොත"
+        },
+        {
+          "en": "Hands-on guidance for structured paper",
+          "si": "ව්‍යුහගත රචනා ප්‍රශ්න පත්‍රයට උපරිම ලකුණු"
+        }
       ]
     }
   ],
