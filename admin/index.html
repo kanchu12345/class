@@ -55,15 +55,13 @@
     <div class="auth-card">
       <div class="auth-header">
         <div class="auth-logo">⚛</div>
-        <div class="auth-step-badge" id="authStepBadge">Step 1 of 2: Admin Credentials</div>
-        <h2 id="authHeading">Physics CMS Login</h2>
-        <p id="authSubheading">Enter your administrator credentials to access the tuition content management system.</p>
+        <h2>Physics CMS Login</h2>
+        <p>Enter your administrator credentials to manage tuition classes, timetables, and website content.</p>
       </div>
 
-      <!-- LAYER 1: USERNAME & PASSWORD LOGIN SCREEN -->
-      <form id="credLoginForm">
-        <div id="credErrorAlert" class="auth-error-alert" style="display: none;">
-          ⚠️ Invalid credentials. Access denied.
+      <form id="loginForm">
+        <div id="loginErrorAlert" class="auth-error-alert" style="display: none;">
+          ⚠️ Invalid username or password. Please try again.
         </div>
 
         <div class="form-group">
@@ -76,61 +74,8 @@
           <input type="password" id="adminPassword" placeholder="Enter admin password" required autocomplete="current-password">
         </div>
 
-        <div class="security-note" style="margin-top: 14px; font-size: 0.82rem;">
-          🔒 <strong>Two-Layer Security:</strong> A fixed administrator credential check precedes session repository authorization.
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 1rem; font-weight: 700; margin-top: 16px;">
-          Log In →
-        </button>
-      </form>
-
-      <!-- LAYER 2: GITHUB PERSONAL ACCESS TOKEN (SESSION STORAGE ONLY) -->
-      <form id="tokenLoginForm" style="display: none;">
-        <div id="tokenErrorAlert" class="auth-error-alert" style="display: none;"></div>
-
-        <div class="security-note" style="margin-bottom: 20px;">
-          🛡️ <strong>Session Security:</strong> Your GitHub Personal Access Token is stored strictly in your browser's temporary <code>sessionStorage</code>. It is never committed to GitHub, never placed in URLs, and is immediately destroyed when this browser tab closes.
-        </div>
-
-        <div class="form-group">
-          <label for="ghTokenInput">GitHub Personal Access Token (PAT) <span class="required-star">*</span></label>
-          <input type="password" id="ghTokenInput" placeholder="github_pat_..." required autocomplete="off">
-          <span class="form-hint">Paste your fine-grained token with <strong>Contents: Read and write</strong> permission.</span>
-        </div>
-
-        <div class="grid-2">
-          <div class="form-group">
-            <label for="repoOwnerInput">GitHub Username / Org</label>
-            <input type="text" id="repoOwnerInput" value="kanchu12345" required>
-          </div>
-          <div class="form-group">
-            <label for="repoNameInput">Repository Name</label>
-            <input type="text" id="repoNameInput" value="class" required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="imgbbKeyInput">ImgBB API Key (Pre-configured for Photo Uploads)</label>
-          <input type="text" id="imgbbKeyInput" value="580db6f671331120289dba6d8ec108c2" placeholder="32-character free API key">
-          <span class="form-hint">Used for automatic 1-click tuition flyer & classroom photo hosting.</span>
-        </div>
-
-        <div class="auth-guide-box">
-          <strong>Need your token?</strong>
-          <ol>
-            <li>GitHub → <em>Settings</em> → <em>Developer Settings</em> → <em>Personal access tokens</em>.</li>
-            <li>Select <strong>kanchu12345/class</strong> with <em>Contents: Read and write</em>.</li>
-            <li>Paste into the field above to start your editing session.</li>
-          </ol>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 1rem; font-weight: 700;">
-          🔓 Connect to GitHub CMS
-        </button>
-
-        <button type="button" id="switchUserBtn" class="btn btn-secondary" style="width: 100%; margin-top: 10px; padding: 10px; font-size: 0.86rem;">
-          ← Switch User / Log Out
+        <button type="submit" id="loginSubmitBtn" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 1rem; font-weight: 700; margin-top: 14px;">
+          🔓 Log In to CMS
         </button>
       </form>
     </div>
