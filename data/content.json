@@ -49,8 +49,8 @@
     "subtitle_en": "Guiding students from fundamental principles to examination distinction.",
     "subtitle_si": "මූලික සංකල්පවල සිට විභාග විශිෂ්ටත්වය කරා සිසුන් මෙහෙයවන ගුරු මගපෙන්වීම.",
     "teacher_name": "Suresh Senanayake",
-    "teacher_degree_en": "B.Sc. (Physical Science) • Senior Physics Educator",
-    "teacher_degree_si": "B.Sc. (භෞතික විද්‍යා) • ප්‍රවීණ භෞතික විද්‍යා ආචාර්ය",
+    "teacher_degree_en": "•B.Sc. (Hon's) Physics (Sp) •MIP (SL) •M.Sc. (Phy-Edu) • Senior Physics Educator",
+    "teacher_degree_si": "•B.Sc. (Hon's) Physics (Sp) •MIP (SL) •M.Sc. (Phy-Edu) • ප්‍රවීණ භෞතික විද්‍යා ආචාර්ය",
     "photo": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80",
     "video_title_en": "Watch Teaching Approach (1 Min Overview)",
     "video_title_si": "ඉගැන්වීමේ ක්‍රමවේදය පිළිබඳ හැඳින්වීම (විනාඩි 1ක්)",
@@ -105,7 +105,7 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Saturday 8:00 AM – 1:30 PM",
       "schedule_si": "සෙනසුරාදා පෙ.ව. 8:00 – ප.ව. 1:30",
-      "image": "https://i.ibb.co/rGpX7cFL/WEb-1.png"
+      "image": "https://i.ibb.co/xKbcKZkq/WEb-1.png"
     },
     {
       "id": "ol-science",
@@ -165,12 +165,12 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Sunday 8:00 AM – 2:00 PM",
       "schedule_si": "ඉරිදා පෙ.ව. 8:00 – ප.ව. 2:00",
-      "image": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80"
+      "image": "https://i.ibb.co/99LzHFbP/Web-3.png"
     },
     {
       "id": "practical-workshop",
       "tag": "Practicals",
-      "tagClass": "tag-prac",
+      "tagClass": "tag-al",
       "badge": "Hands-on",
       "medium_en": "Interactive Sessions",
       "medium_si": "ප්‍රායෝගික පරීක්ෂණ",
@@ -195,7 +195,7 @@
       "venue": "Gampaha Institute",
       "schedule_en": "Monthly Special Workshops",
       "schedule_si": "මාසික විශේෂ වැඩමුළු",
-      "image": "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80"
+      "image": "https://i.ibb.co/hFPFpJ7t/Web-4.png"
     }
   ],
   "testimonials": [
@@ -440,15 +440,15 @@
     "title_si": "සුරේෂ් සේනානායක භෞතික විද්‍යා අධ්‍යාපන ආයතනය",
     "subtitle_en": "Conveniently situated in central Gampaha, walking distance from railway & bus terminals.",
     "subtitle_si": "දුම්රිය සහ ප්‍රධාන බස් නැවතුම්පොළට ඉතා සමීපව ගම්පහ නගර මධ්‍යයේ පිහිටි නවීන පන්ති පරිශ්‍රය.",
-    "institute_name_en": "Suresh Senanayake Physics Institute",
-    "institute_name_si": "සුරේෂ් සේනානායක භෞතික විද්‍යා අධ්‍යාපන ආයතනය",
-    "town_en": "No. 42, Colombo Road, Gampaha, Western Province, Sri Lanka",
+    "institute_name_en": "Perfxce - Gampaha",
+    "institute_name_si": "Perfxce - ගම්පහ",
+    "town_en": "No. 71, Queens Mary Road, Gampaha.",
     "town_si": "නො. 42, කොළඹ පාර, ගම්පහ, බස්නාහිර පළාත",
-    "landmark_en": "150m from Gampaha Railway Station & Flyover Junction",
+    "landmark_en": "Near Oshadhi Pharmacy (Upstair of Arpico Finance)",
     "landmark_si": "ගම්පහ දුම්රිය ස්ථානයට සහ ගුවන් පාලම හන්දියට මීටර් 150ක දුරින්",
     "facilities_en": "Air-conditioned modern lecture halls, digital projector facilities, quiet study lounge, and secure parking area.",
     "facilities_si": "වායුසමනය කළ නවීන ශාලා පහසුකම්, ඩිජිටල් ප්‍රොජෙක්ටර් තාක්ෂණය, ශිෂ්‍ය අධ්‍යයන පරිශ්‍රය සහ වාහන නැවැත්වීමේ පහසුකම්.",
-    "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.4589252342085!2d79.99120007584102!3d7.092450016538408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fb8251e604f1%3A0x33b4991aa1576aa2!2sGampaha%20Railway%20Station!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk",
+    "map_embed_url": "https://maps.app.goo.gl/TGy3nTKHAkDGwpJg6",
     "google_maps_url": "https://maps.google.com/?q=7.092450,79.993400+(Suresh+Senanayake+Physics+Classes+-+Gampaha)",
     "campus_photo": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80"
   },
